@@ -16,7 +16,7 @@ const founders = [
   },
   {
     name: 'مصطفى الجيزاوي',
-    role: 'مؤسس',
+    role: 'مهندس مؤسس',
     img: '/salla/mostafa.jpg',
     social: [
       { icon: Linkedin, href: 'https://www.linkedin.com/in/mostafa-algezawy-5142a0307', label: 'LinkedIn' },
