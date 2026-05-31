@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ar_EG',
     alternateLocale: ['en_US'],
-    url: 'https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app',
+    url: 'https://sallaegy.vercel.app',
     siteName: 'تطبيق سلة',
     title: 'تطبيق سلة ♻️ حوّل مخلفاتك لثروة بضغطة زر!',
     description: 'تطبيق سلة بيساعدك تحافظ على البيئة وتحول المخلفات لفلوس ومكافآت في محفظتك بكل سهولة ومن موبايلك. بنجمع الألمنيوم، البلاستيك، النحاس، الإلكترونيات، الحديد، الكرتون، والورق.',
     images: [
       {
-        url: '/salla/og-image.png',
+        url: 'https://sallaegy.vercel.app/salla/og-image.png',
         width: 1200,
         height: 630,
         alt: 'تطبيق سلة - حوّل مخلفاتك لثروة',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'تطبيق سلة ♻️ حوّل مخلفاتك لثروة بضغطة زر!',
     description: 'تطبيق سلة بيساعدك تحافظ على البيئة وتحول المخلفات لفلوس ومكافآت في محفظتك بكل سهولة ومن موبايلك. بنجمع الألمنيوم، البلاستيك، النحاس، الإلكترونيات، الحديد، الكرتون، والورق.',
-    images: ['/salla/og-image.png'],
+    images: ['https://sallaegy.vercel.app/salla/og-image.png'],
     creator: '@salla_egypt',
   },
   verification: {
@@ -77,13 +77,13 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   alternates: {
-    canonical: 'https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app',
+    canonical: 'https://sallaegy.vercel.app',
     languages: {
-      'ar-EG': 'https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app',
-      'en-US': 'https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app/en',
+      'ar-EG': 'https://sallaegy.vercel.app',
+      'en-US': 'https://sallaegy.vercel.app/en',
     },
   },
-  metadataBase: new URL('https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app'),
+  metadataBase: new URL('https://sallaegy.vercel.app'),
 }
 
 export default function RootLayout({
