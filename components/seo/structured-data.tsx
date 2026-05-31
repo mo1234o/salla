@@ -8,20 +8,20 @@ export function StructuredData() {
     '@type': 'Organization',
     name: 'سلة',
     alternateName: 'Salla Egypt',
-    url: 'https://salla-egypt.com',
-    logo: 'https://salla-egypt.com/icon.png',
+    url: 'https://sallaegy.vercel.app',
+    logo: 'https://sallaegy.vercel.app/icon.png',
     description: 'تطبيق سلة بيساعدك تحافظ على البيئة وتحول المخلفات لفلوس ومكافآت في محفظتك بكل سهولة ومن موبايلك. بنجمع الألمنيوم، البلاستيك، النحاس، الإلكترونيات، الحديد، الكرتون، والورق.',
     foundingDate: '2026',
     founders: [
       {
         '@type': 'Person',
-        name: 'سامي عوض',
-        jobTitle: 'مهندس ومؤسس مشارك',
+        name: 'مصطفى الجيزاوي',
+        jobTitle: 'مؤسس',
       },
       {
         '@type': 'Person',
-        name: 'مصطفى الجيزاوي',
-        jobTitle: 'مهندس ومؤسس مشارك',
+        name: 'سامي عوض',
+        jobTitle: 'شريك مؤسس',
       },
     ],
     contactPoint: {
@@ -59,19 +59,19 @@ export function StructuredData() {
     '@type': 'WebSite',
     name: 'تطبيق سلة',
     alternateName: 'Salla Egypt',
-    url: 'https://salla-egypt.com',
+    url: 'https://sallaegy.vercel.app',
     description: 'تطبيق سلة بيساعدك تحافظ على البيئة وتحول المخلفات لفلوس ومكافآت في محفظتك بكل سهولة ومن موبايلك. بنجمع الألمنيوم، البلاستيك، النحاس، الإلكترونيات، الحديد، الكرتون، والورق.',
     keywords: 'تطبيق سلة, إعادة تدوير, مصر, الدلتا, مخلفات, ألمنيوم, بلاستيك, نحاس, إلكترونيات, حديد, كرتون, ورق, مكافآت, حماية البيئة, تطبيق مصري, جمع القمامة, فلوس من القمامة, تطبيق بيئي, إعادة تدوير المعادن, إعادة تدوير الورق, إعادة تدوير الإلكترونيات',
     inLanguage: 'ar',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://salla-egypt.com/search?q={search_term_string}',
+      target: 'https://sallaegy.vercel.app/search?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
     publisher: {
       '@type': 'Organization',
       name: 'سلة',
-      url: 'https://salla-egypt.com',
+      url: 'https://sallaegy.vercel.app',
     },
   }
 
@@ -81,7 +81,7 @@ export function StructuredData() {
     name: 'سلة',
     alternateName: 'Salla Egypt',
     description: 'تطبيق سلة بيساعدك تحافظ على البيئة وتحول المخلفات لفلوس ومكافآت في محفظتك بكل سهولة ومن موبايلك. بنجمع الألمنيوم، البلاستيك، النحاس، الإلكترونيات، الحديد، الكرتون، والورق.',
-    url: 'https://salla-egypt.com',
+    url: 'https://sallaegy.vercel.app',
     telephone: '+20-12-0306-2905',
     email: 'salla.wahdaa@gmail.com',
     address: {
@@ -132,7 +132,7 @@ export function StructuredData() {
       ratingValue: '4.9',
       ratingCount: '150',
     },
-    downloadUrl: 'https://salla-egypt.com/salla-app-v1.1.0.apk',
+    downloadUrl: 'https://sallaegy.vercel.app/salla-app-v1.1.0.apk',
     featureList: [
       'تسجيل سريع وسهل',
       'تصوير المخلفات',
@@ -199,13 +199,13 @@ export function StructuredData() {
         '@type': 'ListItem',
         position: 1,
         name: 'الرئيسية',
-        item: 'https://salla-egypt.com',
+        item: 'https://sallaegy.vercel.app',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'تطبيق سلة',
-        item: 'https://salla-egypt.com/#top',
+        item: 'https://sallaegy.vercel.app/#top',
       },
     ],
   }
