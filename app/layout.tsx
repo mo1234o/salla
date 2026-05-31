@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ar_EG',
     alternateLocale: ['en_US'],
-    url: 'https://salla-egypt.com',
+    url: 'https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app',
     siteName: 'تطبيق سلة',
     title: 'تطبيق سلة ♻️ حوّل مخلفاتك لثروة بضغطة زر!',
     description: 'تطبيق سلة بيساعدك تحافظ على البيئة وتحول المخلفات لفلوس ومكافآت في محفظتك بكل سهولة ومن موبايلك. بنجمع الألمنيوم، البلاستيك، النحاس، الإلكترونيات، الحديد، الكرتون، والورق.',
@@ -77,13 +77,13 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   alternates: {
-    canonical: 'https://salla-egypt.com',
+    canonical: 'https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app',
     languages: {
-      'ar-EG': 'https://salla-egypt.com/ar',
-      'en-US': 'https://salla-egypt.com/en',
+      'ar-EG': 'https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app',
+      'en-US': 'https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app/en',
     },
   },
-  metadataBase: new URL('https://salla-egypt.com'),
+  metadataBase: new URL('https://salla-kzzj8o1w6-mos-projects-f327af6a.vercel.app'),
 }
 
 export default function RootLayout({
