@@ -1,0 +1,60 @@
+{
+  "name": "تطبيق سلة - حوّل مخلفاتك لثروة",
+  "short_name": "سلة",
+  "description": "تطبيق سلة بيساعدك تحافظ على البيئة وتحول المخلفات لفلوس ومكافآت في محفظتك بكل سهولة ومن موبايلك. بنجمع الألمنيوم، البلاستيك، النحاس، الإلكترونيات، الحديد، الكرتون، والورق. مشروع مصري من الدلتا تأسس عام 2026.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["environment", "utilities", "lifestyle", "recycling"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "تحميل التطبيق",
+      "short_name": "تحميل",
+      "description": "حمّل تطبيق سلة من Google Play",
+      "url": "/#top",
+      "icons": [{ "src": "/icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "كيف يعمل",
+      "short_name": "الشرح",
+      "description": "اعرف إزاي تطبيق سلة بيشتغل",
+      "url": "/#how",
+      "icons": [{ "src": "/icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "تواصل معنا",
+      "short_name": "تواصل",
+      "description": "اتواصل مع فريق سلة",
+      "url": "/#contact",
+      "icons": [{ "src": "/icon.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.salla.app",
+      "id": "com.salla.app"
+    }
+  ],
+  "prefer_related_applications": false
+}
