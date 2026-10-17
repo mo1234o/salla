@@ -1,30 +1,32 @@
 'use client'
 
-import Image from 'next/image'
-import { Linkedin, Facebook, Youtube } from 'lucide-react'
+// TEMPORARILY DISABLED - Can be re-enabled later
+// import Image from 'next/image'
+// import { Linkedin, Facebook, Youtube } from 'lucide-react'
 import { getSecureSectionUrl } from '@/lib/secure-url'
 
-const founders = [
-  {
-    name: 'سامي عوض',
-    role: 'مهندس ومؤسس مشارك',
-    img: '/salla/sami.jpg',
-    social: [
-      { icon: Linkedin, href: 'https://www.linkedin.com/in/samy-awad-samy', label: 'LinkedIn' },
-      { icon: Facebook, href: 'https://www.facebook.com/samy.awad.9638', label: 'Facebook' },
-    ],
-  },
-  {
-    name: 'مصطفى الجيزاوي',
-    role: 'مهندس مؤسس',
-    img: '/salla/mostafa.jpg',
-    social: [
-      { icon: Linkedin, href: 'https://www.linkedin.com/in/mostafa-algezawy-5142a0307', label: 'LinkedIn' },
-      { icon: Facebook, href: 'https://www.facebook.com/mostafa.algezawy.2025/', label: 'Facebook' },
-      { icon: Youtube, href: 'https://www.youtube.com/@mostafa_algezawy', label: 'YouTube' },
-    ],
-  },
-]
+// TEMPORARILY DISABLED - Can be re-enabled later
+// const founders = [
+//   {
+//     name: 'سامي عوض',
+//     role: 'مهندس ومؤسس مشارك',
+//     img: '/salla/sami.jpg',
+//     social: [
+//       { icon: Linkedin, href: 'https://www.linkedin.com/in/samy-awad-samy', label: 'LinkedIn' },
+//       { icon: Facebook, href: 'https://www.facebook.com/samy.awad.9638', label: 'Facebook' },
+//     ],
+//   },
+//   {
+//     name: 'مصطفى الجيزاوي',
+//     role: 'مهندس مؤسس',
+//     img: '/salla/mostafa.jpg',
+//     social: [
+//       { icon: Linkedin, href: 'https://www.linkedin.com/in/mostafa-algezawy-5142a0307', label: 'LinkedIn' },
+//       { icon: Facebook, href: 'https://www.facebook.com/mostafa.algezawy.2025/', label: 'Facebook' },
+//       { icon: Youtube, href: 'https://www.youtube.com/@mostafa_algezawy', label: 'YouTube' },
+//     ],
+//   },
+// ]
 
 export function Team() {
   return (
@@ -41,7 +43,8 @@ export function Team() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
+      {/* TEMPORARILY DISABLED - Founders section can be re-enabled later */}
+      {/* <div className="mt-12 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
         {founders.map((f) => (
           <div
             key={f.name}
@@ -49,7 +52,7 @@ export function Team() {
             style={{ perspective: '1000px' }}
           >
             {/* Image Card */}
-            <div
+            {/* <div
               className="relative overflow-hidden rounded-[2.5rem] border-[6px] border-border bg-card shadow-xl transition-all duration-700 hover:-translate-y-4 hover:shadow-2xl"
               style={{ transformStyle: 'preserve-3d' }}
             >
@@ -64,7 +67,7 @@ export function Team() {
               </div>
               
               {/* Name and Role */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-center sm:p-8 translate-y-2 transition-transform duration-500 group-hover:translate-y-0">
+              {/* <div className="absolute bottom-0 left-0 right-0 p-6 text-center sm:p-8 translate-y-2 transition-transform duration-500 group-hover:translate-y-0">
                 <h3 className="font-heading text-2xl font-black text-white drop-shadow-lg sm:text-3xl">
                   {f.name}
                 </h3>
@@ -75,7 +78,7 @@ export function Team() {
             </div>
 
             {/* 3D Social Media Links Under Image */}
-            <div
+            {/* <div
               className="mt-6 flex justify-center gap-4 transition-all duration-500 group-hover:translate-z-10"
               style={{ transformStyle: 'preserve-3d' }}
             >
@@ -100,7 +103,7 @@ export function Team() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </section>
   )
 }

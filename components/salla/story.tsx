@@ -53,7 +53,38 @@ export function Story() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4" style={{ perspective: '1000px' }}>
+        <div className="grid grid-cols-3 gap-4" style={{ perspective: '1000px' }}>
+          <div className="relative transition-all duration-700 hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 hover:shadow-2xl" style={{ transformStyle: 'preserve-3d' }}>
+            <Image
+              src="/salla/story-1.jpg"
+              alt="قصة تطبيق سلة - صورة 1"
+              width={400}
+              height={500}
+              className="h-full w-full rounded-2xl object-cover shadow-lg"
+            />
+          </div>
+          <div className="relative transition-all duration-700 hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 hover:shadow-2xl" style={{ transformStyle: 'preserve-3d' }}>
+            <Image
+              src="/salla/story-2.jpg"
+              alt="قصة تطبيق سلة - صورة 2"
+              width={400}
+              height={500}
+              className="h-full w-full rounded-2xl object-cover shadow-lg"
+            />
+          </div>
+          <div className="relative transition-all duration-700 hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 hover:shadow-2xl" style={{ transformStyle: 'preserve-3d' }}>
+            <Image
+              src="/salla/story-3.jpg"
+              alt="قصة تطبيق سلة - صورة 3"
+              width={400}
+              height={500}
+              className="h-full w-full rounded-2xl object-cover shadow-lg"
+            />
+          </div>
+        </div>
+
+        {/* OLD IMAGES - TEMPORARILY DISABLED - Can be re-enabled later */}
+        {/* <div className="grid grid-cols-2 gap-4" style={{ perspective: '1000px' }}>
           <div className="relative transition-all duration-700 hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 hover:shadow-2xl" style={{ transformStyle: 'preserve-3d' }}>
             <Image
               src="/salla/mostafa.jpg"
@@ -83,7 +114,7 @@ export function Story() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

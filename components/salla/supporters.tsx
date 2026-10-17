@@ -19,17 +19,75 @@ export function Supporters() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24 relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           
-          <div className="relative order-last lg:order-first mx-auto w-full max-w-md group">
-            <div className="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-primary/40 to-secondary/30 blur-2xl transition-all duration-700 group-hover:blur-3xl group-hover:scale-110 opacity-70" />
-            <div className="relative overflow-hidden rounded-[2.5rem] border-[8px] border-card bg-card shadow-2xl transition-all duration-700 hover:!-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-              <Image
-                src="/salla/img-5.jpg"
-                alt="تكريم تطبيق سلة بالمركز الثالث في هالت برايز على مستوى مصر - تطبيق إعادة تدوير مصري"
-                width={900}
-                height={900}
-                className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-90" />
+          <div className="relative order-last lg:order-first mx-auto w-full max-w-lg group flex flex-col gap-6">
+            {/* NEW WINNER IMAGE - Larger with Gold Border */}
+            <div className="relative group/image">
+              <div className="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-yellow-400/40 via-amber-500/30 to-yellow-600/40 blur-2xl transition-all duration-700 group-hover/image:blur-3xl group-hover/image:scale-110 opacity-70" />
+              <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-transparent bg-gradient-to-br from-yellow-500 via-amber-400 to-yellow-600 shadow-2xl transition-all duration-700 hover:!-translate-y-4 hover:shadow-[0_20px_50px_rgba(234,179,8,0.5)]">
+                <div className="absolute inset-0 rounded-[2.5rem] border-[3px] border-black/20" />
+                <Image
+                  src="/salla/impact-makers-win.jpg"
+                  alt="فوز فريق Impact Makers بالمركز الأول عن مشروع ماكينة ذكية لفرز المخلفات - Impact Makers Salla Team - أفضل فريق إعادة تدوير في مصر - Salla Team الفائز بالمركز الأول في مسابقة نُعيد.. نُبدع.. نَبني لإدارة المخلفات 2026"
+                  width={1000}
+                  height={1000}
+                  className="aspect-square w-full object-cover transition-transform duration-700 group-hover/image:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
+              </div>
+            </div>
+
+            {/* Wide Competition Name Banner */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary via-primary/90 to-primary border-2 border-primary/30 shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-yellow-400/20" />
+              <div className="relative px-6 py-4 text-center">
+                <p className="font-heading text-xl sm:text-2xl font-black text-white drop-shadow-lg">
+                  مسابقة «نُعيد.. نُبدع.. نَبني» لإدارة المخلفات بالجامعات 2026
+                </p>
+              </div>
+            </div>
+
+            {/* Caption for Impact Makers Image */}
+            <div className="text-center px-4">
+              <p className="font-heading text-lg font-bold text-foreground mb-2">
+                Impact Makers - Salla Team
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                كرّم الدكتور وجيه أحمد العسكري، رئيس جامعة الدلتا التكنولوجية، الفرق الطلابية الفائزة بالمراكز الثلاثة الأولى في الهاكاثون الداخلي. فاز فريق Impact Makers بالمركز الأول عن مشروع «ماكينة ذكية لفرز المخلفات».
+              </p>
+            </div>
+
+            {/* SEO Hidden Caption - Only visible to search engines */}
+            <div className="sr-only" aria-hidden="true">
+              <p>
+                فريق Salla Team هو أفضل فريق إعادة تدوير في مصر، حصل على المركز الأول في مسابقة نُعيد.. نُبدع.. نَبني لإدارة المخلفات 2026.
+                Impact Makers Salla Team هو الفائز رقم واحد في تدوير المخلفات وإعادة التدوير في مصر.
+                مشروع ماكينة ذكية لفرز المخلفات من الفريق الأفضل في إعادة التدوير.
+              </p>
+            </div>
+
+            {/* OLD IMAGE - Restored */}
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-primary/40 to-secondary/30 blur-2xl transition-all duration-700 group-hover:blur-3xl group-hover:scale-110 opacity-70" />
+              <div className="relative overflow-hidden rounded-[2.5rem] border-[8px] border-card bg-card shadow-2xl transition-all duration-700 hover:!-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                <Image
+                  src="/salla/img-5.jpg"
+                  alt="تكريم تطبيق سلة بالمركز الثالث في هالت برايز على مستوى مصر - تطبيق إعادة تدوير مصري"
+                  width={900}
+                  height={900}
+                  className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-90" />
+              </div>
+            </div>
+
+            {/* Caption for Hult Prize Image */}
+            <div className="text-center px-4">
+              <p className="font-heading text-lg font-bold text-foreground mb-2">
+                هالت برايز — Hult Prize
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                تكريم تطبيق سلة بالمركز الثالث في هالت برايز على مستوى مصر
+              </p>
             </div>
           </div>
 
