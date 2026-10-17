@@ -1,14 +1,26 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Play, Download, Truck, Factory, Users, CheckCircle } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Truck, Factory, CheckCircle, ArrowRight } from 'lucide-react'
 
 export function PartnersSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [currentVehicle, setCurrentVehicle] = useState(0)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  const vehicles = [
+    { name: 'تروسيكل', icon: '🛵', desc: 'لتوصيل الطلبات السريعة' },
+    { name: 'روبابيكيا', icon: '🚗', desc: 'لنقل الكميات الكبيرة' },
+    { name: 'نص نقل', icon: '🚚', desc: 'للشحن الثقيل والمصانع' },
+  ]
 
   useEffect(() => {
     setIsVisible(true)
+    const interval = setInterval(() => {
+      setCurrentVehicle((prev) => (prev + 1) % vehicles.length)
+    }, 4000)
+    return () => clearInterval(interval)
   }, [])
 
   const roles = [
@@ -71,7 +83,7 @@ export function PartnersSection() {
     <section className="py-20 px-4 bg-gradient-to-b from-green-50 to-white" id="partners">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold mb-4">
             انضم لشبكة سلة
           </span>
@@ -83,6 +95,69 @@ export function PartnersSection() {
             أو بتشتري خردة وعايز <strong className="text-gray-900">توفّر وقت اللف وفلوس البنزين والسولار</strong>؟
             سجّل كشريك في تطبيق سلة مصر، والطلبات بتوصلك لحد عندك حسب منطقتك.
           </p>
+        </div>
+
+        {/* Animated Vehicles Section */}
+        <div className="mb-16">
+          <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-3xl p-8 shadow-xl border-2 border-green-100">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              {/* Vehicle Display */}
+              <div className="flex-1 w-full">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-green-200 min-h-[300px] flex items-center justify-center relative overflow-hidden">
+                  <div className="text-center">
+                    <div className="text-8xl mb-4 animate-bounce" style={{ animationDuration: '2s' }}>
+                      {vehicles[currentVehicle].icon}
+                    </div>
+                    <h3 className="text-3xl font-black text-gray-900 mb-2">
+                      {vehicles[currentVehicle].name}
+                    </h3>
+                    <p className="text-lg text-gray-600 font-semibold">
+                      {vehicles[currentVehicle].desc}
+                    </p>
+                  </div>
+                  {/* Progress indicator */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                    {vehicles.map((_, idx) => (
+                      <div
+                        key={idx}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          idx === currentVehicle ? 'w-8 bg-green-600' : 'w-2 bg-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Vehicle Info */}
+              <div className="flex-1 w-full">
+                <h3 className="text-2xl font-black text-gray-900 mb-6">
+                  مركبات الشركاء المتاحة
+                </h3>
+                <div className="space-y-4">
+                  {vehicles.map((vehicle, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex items-center gap-4 p-4 rounded-xl transition-all ${
+                        idx === currentVehicle
+                          ? 'bg-green-100 border-2 border-green-500 scale-105'
+                          : 'bg-white border-2 border-gray-200'
+                      }`}
+                    >
+                      <div className="text-4xl">{vehicle.icon}</div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-gray-900">{vehicle.name}</h4>
+                        <p className="text-sm text-gray-600">{vehicle.desc}</p>
+                      </div>
+                      {idx === currentVehicle && (
+                        <ArrowRight className="w-6 h-6 text-green-600 animate-pulse" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Roles Grid */}
@@ -161,22 +236,6 @@ export function PartnersSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="bg-gradient-to-r from-green-600 to-green-500 rounded-3xl p-12 text-center text-white shadow-2xl">
-          <h2 className="text-3xl font-black mb-4">جاهز تبدأ مع سلة؟</h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto opacity-95">
-            سواء عايز تشتغل بعربيتك أو توفّر وقتك وبنزينك كمشتري، التسجيل كشريك بياخد دقايق من التطبيق.
-          </p>
-          <a
-            href="https://play.google.com/store/search?q=salla%20egypt&c=apps"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white text-green-700 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:scale-105 transition-all"
-          >
-            <Download className="w-6 h-6" />
-            حمّل التطبيق وسجّل كشريك
-          </a>
-        </div>
       </div>
     </section>
   )
