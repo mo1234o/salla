@@ -95,6 +95,11 @@ export function Vehicles3D({ onInfoChange }: Vehicles3DProps) {
     renderer.toneMapping = THREE.NoToneMapping
     renderer.shadowMap.enabled = true
     renderer.shadowMap.type = THREE.PCFSoftShadowMap
+    renderer.domElement.style.width = '100%'
+    renderer.domElement.style.height = '100%'
+    renderer.domElement.style.position = 'absolute'
+    renderer.domElement.style.top = '0'
+    renderer.domElement.style.left = '0'
     wrap.appendChild(renderer.domElement)
 
     const scene = new THREE.Scene()
@@ -759,9 +764,11 @@ export function Vehicles3D({ onInfoChange }: Vehicles3DProps) {
       const w = wrap.clientWidth,
         h = wrap.clientHeight
       if (!w || !h) return
-      renderer.setSize(w, h, false)
-      camera.aspect = w / h
-      const dist = 12.2 * (w / h < 1.1 ? 1.1 / (w / h) * 0.92 : 1)
+      const maxWidth = Math.min(w, 600)
+      const maxHeight = Math.min(h, 400)
+      renderer.setSize(maxWidth, maxHeight, false)
+      camera.aspect = maxWidth / maxHeight
+      const dist = 12.2 * (maxWidth / maxHeight < 1.1 ? 1.1 / (maxWidth / maxHeight) * 0.92 : 1)
       camera.position.copy(camDir).multiplyScalar(dist).add(camTarget)
       camera.lookAt(camTarget)
       camera.updateProjectionMatrix()
@@ -850,8 +857,8 @@ export function Vehicles3D({ onInfoChange }: Vehicles3DProps) {
   }, [])
 
   return (
-    <div className="relative w-full h-full">
-      <div ref={canvasRef} className="w-full h-full" id="sp-canvas" />
+    <div className="relative w-full h-full min-h-[400px] overflow-hidden" style={{ position: 'relative' }}>
+      <div ref={canvasRef} className="w-full h-full" id="sp-canvas" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
     </div>
   )
 }

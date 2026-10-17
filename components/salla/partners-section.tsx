@@ -1,25 +1,26 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Truck, Factory, CheckCircle } from 'lucide-react'
-import { Vehicles3D } from './vehicles-3d'
+import { Truck, Factory, CheckCircle, ArrowRight } from 'lucide-react'
 
 export function PartnersSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
-  const [currentInfo, setCurrentInfo] = useState({
-    tag: 'مركبتك',
-    title: 'تروسيكل',
-    desc: 'بيدخل الحواري والشوارع الضيقة ويلف على البيوت والمحلات بأقل مصاريف. سجّل بتروسيكلك كشريك جامع واستلم طلبات قريبة منك.'
-  })
+  const [currentVehicle, setCurrentVehicle] = useState(0)
+
+  const vehicles = [
+    { name: 'تروسيكل', icon: '🛵', desc: 'لتوصيل الطلبات السريعة' },
+    { name: 'روبابيكيا', icon: '🚗', desc: 'لنقل الكميات الكبيرة' },
+    { name: 'نص نقل', icon: '🚚', desc: 'للشحن الثقيل والمصانع' },
+  ]
 
   useEffect(() => {
     setIsVisible(true)
+    const interval = setInterval(() => {
+      setCurrentVehicle((prev) => (prev + 1) % vehicles.length)
+    }, 4000)
+    return () => clearInterval(interval)
   }, [])
-
-  const handleInfoChange = (info: { tag: string; title: string; desc: string }) => {
-    setCurrentInfo(info)
-  }
 
   const roles = [
     {
@@ -95,29 +96,63 @@ export function PartnersSection() {
           </p>
         </div>
 
-        {/* 3D Vehicles Section */}
+        {/* Animated Vehicles Section */}
         <div className="mb-16">
           <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-3xl p-8 shadow-xl border-2 border-green-100">
             <div className="flex flex-col md:flex-row items-center gap-8">
-              {/* 3D Canvas */}
+              {/* Vehicle Display */}
               <div className="flex-1 w-full">
-                <div className="bg-white rounded-2xl shadow-lg border-2 border-green-200 min-h-[400px] overflow-hidden">
-                  <Vehicles3D onInfoChange={handleInfoChange} />
+                <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-green-200 min-h-[300px] flex items-center justify-center relative overflow-hidden">
+                  <div className="text-center">
+                    <div className="text-8xl mb-4 animate-bounce" style={{ animationDuration: '2s' }}>
+                      {vehicles[currentVehicle].icon}
+                    </div>
+                    <h3 className="text-3xl font-black text-gray-900 mb-2">
+                      {vehicles[currentVehicle].name}
+                    </h3>
+                    <p className="text-lg text-gray-600 font-semibold">
+                      {vehicles[currentVehicle].desc}
+                    </p>
+                  </div>
+                  {/* Progress indicator */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                    {vehicles.map((_, idx) => (
+                      <div
+                        key={idx}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          idx === currentVehicle ? 'w-8 bg-green-600' : 'w-2 bg-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Vehicle Info */}
               <div className="flex-1 w-full">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-green-100">
-                  <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-bold mb-3">
-                    {currentInfo.tag}
-                  </span>
-                  <h3 className="text-3xl font-black text-gray-900 mb-4">
-                    {currentInfo.title}
-                  </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    {currentInfo.desc}
-                  </p>
+                <h3 className="text-2xl font-black text-gray-900 mb-6">
+                  مركبات الشركاء المتاحة
+                </h3>
+                <div className="space-y-4">
+                  {vehicles.map((vehicle, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex items-center gap-4 p-4 rounded-xl transition-all ${
+                        idx === currentVehicle
+                          ? 'bg-green-100 border-2 border-green-500 scale-105'
+                          : 'bg-white border-2 border-gray-200'
+                      }`}
+                    >
+                      <div className="text-4xl">{vehicle.icon}</div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-gray-900">{vehicle.name}</h4>
+                        <p className="text-sm text-gray-600">{vehicle.desc}</p>
+                      </div>
+                      {idx === currentVehicle && (
+                        <ArrowRight className="w-6 h-6 text-green-600 animate-pulse" />
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
