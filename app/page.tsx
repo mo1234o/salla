@@ -4,7 +4,6 @@ import { Problem } from '@/components/salla/problem'
 import { HowItWorks } from '@/components/salla/how-it-works'
 import { SectionWrapper } from '@/components/salla/section-wrapper'
 import { StructuredData } from '@/components/seo/structured-data'
-import { PartnersSection } from '@/components/salla/partners-section'
 import dynamic from 'next/dynamic'
 
 const PromoBanner = dynamic(() => import('@/components/salla/promo-banner').then(mod => ({ default: mod.PromoBanner })), {
@@ -23,6 +22,10 @@ const Supporters = dynamic(() => import('@/components/salla/supporters').then(mo
   loading: () => <div className="h-96 animate-pulse bg-muted/50" />,
 })
 
+const PartnersSection = dynamic(() => import('@/components/salla/partners-section').then(mod => ({ default: mod.PartnersSection })), {
+  loading: () => <div className="h-96 animate-pulse bg-muted/50" />,
+})
+
 const Gallery = dynamic(() => import('@/components/salla/gallery').then(mod => ({ default: mod.Gallery })), {
   loading: () => <div className="h-[500px] animate-pulse bg-muted/50" />,
 })
@@ -32,10 +35,6 @@ const TukTukSection = dynamic(() => import('@/components/salla/tuktuk-section').
 })
 
 const VideosSection = dynamic(() => import('@/components/salla/videos-section').then(mod => ({ default: mod.VideosSection })), {
-  loading: () => <div className="h-96 animate-pulse bg-muted/50" />,
-})
-
-const PartnersSection = dynamic(() => import('@/components/salla/partners-section').then(mod => ({ default: mod.PartnersSection })), {
   loading: () => <div className="h-96 animate-pulse bg-muted/50" />,
 })
 
@@ -70,9 +69,6 @@ export default function Page() {
         </SectionWrapper>
         <SectionWrapper>
           <Supporters />
-        </SectionWrapper>
-        <SectionWrapper>
-          <PartnersSection />
         </SectionWrapper>
         <SectionWrapper>
           <Gallery />
