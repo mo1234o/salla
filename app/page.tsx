@@ -54,6 +54,9 @@ export default function Page() {
         </SectionWrapper>
         <PromoBanner />
         <SectionWrapper>
+          <PartnersSection />
+        </SectionWrapper>
+        <SectionWrapper>
           <Problem />
         </SectionWrapper>
         <SectionWrapper>
