@@ -7,6 +7,7 @@ Country: Egypt (EG)
 Region: Delta (الدلتا)
 City: Mansoura (المنصورة)
 Address: Delta Technological University, Mansoura, Egypt
+License: Creative Hub Menoufia, Dakahlia Governorate
 
 Geo Coordinates: 30.0444, 31.2357
 Geo Radius: 500km
@@ -28,6 +29,21 @@ Service Areas:
 - Ismailia (الإسماعيلية)
 - Suez (السويس)
 - Sharqia (الشرقية)
+- Menoufia (المنوفية)
+- Qalyubia (القليوبية)
+- Beni Suef (بني سويف)
+- Fayoum (الفيوم)
+- Minya (المنيا)
+- Assiut (أسيوط)
+- Sohag (سوهاج)
+- Qena (قنا)
+- Luxor (الأقصر)
+- Aswan (أسوان)
+- New Valley (الوادي الجديد)
+- Red Sea (البحر الأحمر)
+- Matrouh (مطروح)
+- North Sinai (شمال سيناء)
+- South Sinai (جنوب سيناء)
 - Monufia (المنوفية)
 - Qalyubia (القليوبية)
 - Giza (الجيزة)
