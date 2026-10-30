@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { Baby, ShoppingBag, Phone, Camera, Gift, Gamepad2, PiggyBank, GraduationCap, Recycle, Sparkles, ArrowRight, Star } from 'lucide-react'
+import { Baby, ShoppingBag, Phone, Camera, Gift, Gamepad2, PiggyBank, GraduationCap, Recycle, Sparkles, ArrowRight, Star, Image as ImageIcon } from 'lucide-react'
 
 export function SaltiKids() {
   const [activeStep, setActiveStep] = useState(0)
   const [hoveredStep, setHoveredStep] = useState<number | null>(null)
+  const [imageError, setImageError] = useState(false)
 
   const steps = [
     {
@@ -56,16 +57,19 @@ export function SaltiKids() {
             بيزنس موديل جديد
           </span>
           <div className="mb-6 relative">
-            <img
-              src="/salti-logo.png"
-              alt="سلتي للأطفال"
-              className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto animate-bounce rounded-2xl shadow-2xl border-4 border-rose-200"
-              style={{ animationDuration: '3s' }}
-              onError={(e) => {
-                console.error('Failed to load salti logo', e)
-                e.currentTarget.style.display = 'none'
-              }}
-            />
+            {!imageError ? (
+              <img
+                src="/salti-logo.png"
+                alt="سلتي للأطفال"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto animate-bounce rounded-2xl shadow-2xl border-4 border-rose-200 object-contain"
+                style={{ animationDuration: '3s' }}
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl shadow-2xl border-4 border-rose-200 flex items-center justify-center">
+                <Gamepad2 className="w-16 h-16 text-rose-600" />
+              </div>
+            )}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-violet-600">سلتي</span> للأطفال
