@@ -41,6 +41,47 @@ export function LicenseSection() {
             </div>
           </div>
 
+          {/* License Preview */}
+          <div className="p-6 sm:p-8 md:p-12 bg-gradient-to-br from-amber-50 to-orange-50">
+            <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
+              <div className="flex-1">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-amber-200">
+                  <div className="flex items-center gap-3 mb-4">
+                    <FileText className="w-8 h-8 text-amber-600" />
+                    <h4 className="font-bold text-gray-900 text-lg">ملف الترخيص</h4>
+                  </div>
+                  <p className="text-gray-600 text-sm mb-4">ترخيص مقر العمل الرسمي من كرياتيفا المنصورة، محافظة الدقهلية</p>
+                  <div className="flex gap-2">
+                    <a
+                      href="/license.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-bold shadow-lg hover:scale-105 transition-all duration-300 text-sm"
+                    >
+                      <Award className="w-4 h-4" />
+                      عرض الترخيص
+                    </a>
+                    <a
+                      href="/license.pdf"
+                      download
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-white text-amber-600 rounded-lg font-bold shadow-lg border-2 border-amber-200 hover:scale-105 transition-all duration-300 text-sm"
+                    >
+                      <FileText className="w-4 h-4" />
+                      تحميل
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="flex-1">
+                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl p-6 text-center">
+                  <Award className="w-16 h-16 text-amber-600 mx-auto mb-2" />
+                  <p className="text-amber-800 font-bold text-lg">مرخص رسمياً</p>
+                  <p className="text-amber-700 text-sm">Creative Hub Menoufia</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* License Content */}
           <div className="p-6 sm:p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
@@ -123,12 +164,11 @@ export function LicenseSection() {
               </p>
               <a
                 href="/license.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-bold shadow-lg hover:scale-105 transition-all duration-300"
               >
                 <FileText className="w-5 h-5" />
-                عرض ترخيص مقر العمل
+                تحميل ترخيص مقر العمل
               </a>
             </div>
           </div>

@@ -55,12 +55,16 @@ export function SaltiKids() {
           <span className="inline-block px-4 py-2 bg-gradient-to-r from-rose-100 to-pink-100 text-rose-700 rounded-full text-sm font-bold mb-4 animate-pulse">
             بيزنس موديل جديد
           </span>
-          <div className="mb-6">
+          <div className="mb-6 relative">
             <img
               src="/salti-logo.png"
               alt="سلتي للأطفال"
-              className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto animate-bounce"
+              className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto animate-bounce rounded-2xl shadow-2xl border-4 border-rose-200"
               style={{ animationDuration: '3s' }}
+              onError={(e) => {
+                console.error('Failed to load salti logo', e)
+                e.currentTarget.style.display = 'none'
+              }}
             />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
