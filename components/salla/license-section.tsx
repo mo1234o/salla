@@ -118,9 +118,18 @@ export function LicenseSection() {
 
             {/* Footer Message */}
             <div className="mt-8 pt-6 border-t-2 border-amber-100 text-center">
-              <p className="text-gray-700 font-semibold text-sm sm:text-base">
+              <p className="text-gray-700 font-semibold text-sm sm:text-base mb-4">
                 هذا الترخيص يعكس التزامنا بالمعايير المهنية وجودة الخدمات المقدمة
               </p>
+              <a
+                href="/license.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-bold shadow-lg hover:scale-105 transition-all duration-300"
+              >
+                <FileText className="w-5 h-5" />
+                عرض ترخيص مقر العمل
+              </a>
             </div>
           </div>
         </div>
