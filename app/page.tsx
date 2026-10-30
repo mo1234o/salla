@@ -61,6 +61,22 @@ export default function Page() {
         <SectionWrapper>
           <LicenseSection />
         </SectionWrapper>
+        {/* Test section to verify files */}
+        <SectionWrapper>
+          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-200">
+            <h3 className="text-2xl font-black text-gray-900 mb-4">التحقق من الملفات</h3>
+            <div className="space-y-4">
+              <div>
+                <p className="font-bold text-gray-900 mb-2">ملف الترخيص:</p>
+                <a href="/license.pdf" target="_blank" className="text-blue-600 underline">/license.pdf</a>
+              </div>
+              <div>
+                <p className="font-bold text-gray-900 mb-2">لوجو سلتي:</p>
+                <img src="/salti-logo.png" alt="سلتي" className="w-32 h-32 border-2 border-gray-300 rounded-lg" />
+              </div>
+            </div>
+          </div>
+        </SectionWrapper>
         <SectionWrapper>
           <NewHowItWorks />
         </SectionWrapper>
