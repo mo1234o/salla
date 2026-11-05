@@ -22,10 +22,6 @@ const Supporters = dynamic(() => import('@/components/salla/supporters').then(mo
   loading: () => <div className="h-96 animate-pulse bg-muted/50" />,
 })
 
-const PartnersSection = dynamic(() => import('@/components/salla/partners-section').then(mod => ({ default: mod.PartnersSection })), {
-  loading: () => <div className="h-96 animate-pulse bg-muted/50" />,
-})
-
 const Gallery = dynamic(() => import('@/components/salla/gallery').then(mod => ({ default: mod.Gallery })), {
   loading: () => <div className="h-[500px] animate-pulse bg-muted/50" />,
 })
@@ -52,9 +48,6 @@ export default function Page() {
           <Hero />
         </SectionWrapper>
         <PromoBanner />
-        <SectionWrapper>
-          <PartnersSection />
-        </SectionWrapper>
         <SectionWrapper>
           <Problem />
         </SectionWrapper>
