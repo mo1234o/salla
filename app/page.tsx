@@ -9,6 +9,7 @@ import { LicenseSection } from '@/components/salla/license-section'
 import { NewHowItWorks } from '@/components/salla/new-how-it-works'
 import { SaltiKids } from '@/components/salla/salti-kids'
 import { SupplySection } from '@/components/salla/supply-section'
+import { AchievementsSection } from '@/components/salla/achievements-section'
 import dynamic from 'next/dynamic'
 
 const PromoBanner = dynamic(() => import('@/components/salla/promo-banner').then(mod => ({ default: mod.PromoBanner })), {
@@ -82,6 +83,9 @@ export default function Page() {
         </SectionWrapper>
         <SectionWrapper>
           <Supporters />
+        </SectionWrapper>
+        <SectionWrapper>
+          <AchievementsSection />
         </SectionWrapper>
         <SectionWrapper>
           <Gallery />

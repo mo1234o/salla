@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { Trophy, Building2, GraduationCap, Cpu, Award } from 'lucide-react'
 import { getSecureSectionUrl } from '@/lib/secure-url'
-import { useState } from 'react'
 
 const supporters = [
   { icon: Building2, logo: '/salla/supporters/بريد-الاستثمار.jpg', name: 'البريد للاستثمار', sub: 'BREI', size: 'large' },
@@ -17,15 +16,7 @@ const supporters = [
   { icon: Building2, logo: '/salla/supporters/simplex.webp', name: 'Simplex', sub: 'SIMPLEX', size: 'normal' },
 ]
 
-const achievementImages = [
-  { src: '/salla/impact-makers-win.jpg', title: 'المركز الأول - Impact Makers', desc: 'مسابقة نُعيد.. نُبدع.. نَبني 2026' },
-  { src: '/salla/img-5.jpg', title: 'المركز الثالث - Hult Prize', desc: 'تكريم على مستوى مصر' },
-  { src: '/salla/silicon-waha-top3.jpg', title: 'المركز الثالث - Silicon Waha', desc: 'Hackathon For Impact 7th Edition' },
-]
-
 export function Supporters() {
-  const [currentImage, setCurrentImage] = useState(0)
-
   return (
     <>
       <style>{`
@@ -43,58 +34,6 @@ export function Supporters() {
       <section id={getSecureSectionUrl('supporters').replace('#', '')} className="border-y border-border bg-gradient-to-b from-muted/30 to-background overflow-hidden relative">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24 relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-
-          <div className="relative order-last lg:order-first mx-auto w-full max-w-2xl group">
-            {/* Overlapping Horizontal Images Display */}
-            <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] w-full">
-              {achievementImages.map((img, index) => (
-                <div
-                  key={index}
-                  className={`absolute top-0 h-full rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 cursor-pointer ${
-                    index === 0 ? 'left-0 w-[70%] sm:w-[65%] z-10 hover:z-30 hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)]' :
-                    index === 1 ? 'left-[50%] sm:left-[55%] w-[70%] sm:w-[65%] z-20 hover:z-30 hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)]' :
-                    'left-[30%] sm:left-[35%] w-[70%] sm:w-[65%] z-30 hover:z-30 hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)]'
-                  }`}
-                  onClick={() => setCurrentImage(index)}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 z-10" />
-                  <Image
-                    src={img.src}
-                    alt={img.title}
-                    width={800}
-                    height={800}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-                    <p className="text-white font-bold text-sm sm:text-base drop-shadow-lg">{img.title}</p>
-                    <p className="text-white/90 text-xs sm:text-sm mt-1 drop-shadow">{img.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Achievement Info Card */}
-            <div className="mt-6 bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-600 rounded-2xl p-6 shadow-xl">
-              <div className="text-center">
-                <p className="font-heading text-xl sm:text-2xl font-black text-white mb-2">
-                  {achievementImages[currentImage].title}
-                </p>
-                <p className="text-white/95 text-sm sm:text-base leading-relaxed">
-                  {achievementImages[currentImage].desc}
-                </p>
-              </div>
-            </div>
-
-            {/* SEO Hidden Caption - Only visible to search engines */}
-            <div className="sr-only" aria-hidden="true">
-              <p>
-                فريق Salla Team هو أفضل فريق إعادة تدوير في مصر، حصل على المركز الأول في مسابقة نُعيد.. نُبدع.. نَبني لإدارة المخلفات 2026.
-                Impact Makers Salla Team هو الفائز رقم واحد في تدوير المخلفات وإعادة التدوير في مصر.
-                فاز فريق سلة بالمركز الثالث في هاكثون فور امباكت النسخة السابعة من Silicon Waha.
-                مشروع ماكينة ذكية لفرز المخلفات من الفريق الأفضل في إعادة التدوير.
-              </p>
-            </div>
-          </div>
 
           <div className="relative">
             <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-accent-foreground shadow-sm">
@@ -210,7 +149,7 @@ export function Supporters() {
           </div>
         </div>
       </div>
-      
+
       {/* Background glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] aspect-square bg-primary/10 blur-[100px] rounded-full pointer-events-none z-0" />
     </section>
