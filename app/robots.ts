@@ -6,37 +6,37 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/', '/private/', '/static/', '/.well-known/'],
+        disallow: ['/api/', '/admin/', '/private/', '/.well-known/'],
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/', '/private/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/', '/private/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         userAgent: 'Slurp',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/', '/private/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         userAgent: 'DuckDuckBot',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/', '/private/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         userAgent: 'Baiduspider',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/', '/private/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         userAgent: 'Yandexbot',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/', '/private/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         userAgent: 'facebookexternalhit',
