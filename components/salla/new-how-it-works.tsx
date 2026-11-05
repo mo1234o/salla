@@ -1,59 +1,59 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Emoji3D, Emoji3DStyles, RichText } from './emoji-3d'
+import { Icon, IconBadge, IconName } from './svg-icons'
 
 type Option = { label: string; reply: string[]; list?: string[]; outro?: string }
-type Scenario = { tab: string; emoji: string; title: string; intro: string[]; question: string; options: Option[] }
+type Scenario = { tab: string; icon: IconName; title: string; intro: string[]; question: string; options: Option[] }
 
 const scenarios: Scenario[] = [
   {
     tab: 'في البيت',
-    emoji: '🏠',
+    icon: 'home',
     title: 'فرز من المنبع والتخلص السريع',
-    intro: ['يا هلا بيك يا سيد الناس ويا ست الكل في تطبيق سلتي (Salla) من قلب كرياتيفا المنصورة بمحافظة الدقهلية 🏢. قولنا كده..'],
+    intro: ['يا هلا بيك يا سيد الناس ويا ست الكل في تطبيق سلتي (Salla) من قلب كرياتيفا المنصورة بمحافظة الدقهلية. قولنا كده..'],
     question: 'عندك مخلفات صلبة أو زبالة في البيت وعاوز تخلص منها وتكسب؟',
     options: [
       {
         label: 'آه، عندي ومحتار فيها',
-        reply: ['طب كويس جدًا! الموضوع بسيط خالص: جمّع كل نوع لوحده (بلاستيك، كانز، ورق)، وحمّل التطبيق، وصوّر المخلفات، وحدد مكانك على الخريطة.. وإحنا هنجيلك لحد باب البيت في أي مكان في الجمهورية نوزن ونستلم ونحوّلك المكافآت والفلوس فورًا! 💸'],
+        reply: ['طب كويس جدًا! الموضوع بسيط خالص: جمّع كل نوع لوحده (بلاستيك، كانز، ورق)، وحمّل التطبيق، وصوّر المخلفات، وحدد مكانك على الخريطة.. وإحنا هنجيلك لحد باب البيت في أي مكان في الجمهورية نوزن ونستلم ونحوّلك المكافآت والفلوس فورًا!'],
       },
     ],
   },
   {
     tab: 'في الشارع والجامعة',
-    emoji: '🎓',
+    icon: 'graduation',
     title: 'ماكينات الشارع والجامعات (Salla Box)',
     intro: ['طب ركّز معايا في دي.. لو إنت في الجامعة أو ماشي في أي شارع في مصر، وخلصت إزازة المية أو علبة الكانز..'],
     question: 'هل رميتها في الأرض؟',
     options: [
       {
         label: 'آه.. رميتها معلش',
-        reply: ['يا عم ما تعملهاش بقا! 🤭 كده بتضيّع ثروة وبتضر بلدنا. ما تحطهم في ماكينة Salla Box الذكية المنتشرة حواليك، وتاخد فلوس كاش وعروض وخصومات كتيرة جدًا من المتاجر اللي شغالة معانا، وتستفيد بالاتنين مع بعض! نظافة وجيبك عمران 😉'],
+        reply: ['يا عم ما تعملهاش بقا! كده بتضيّع ثروة وبتضر بلدنا. ما تحطهم في ماكينة Salla Box الذكية المنتشرة حواليك، وتاخد فلوس كاش وعروض وخصومات كتيرة جدًا من المتاجر اللي شغالة معانا، وتستفيد بالاتنين مع بعض! نظافة وجيبك عمران'],
       },
       {
         label: 'لأ، مستني صندوق',
-        reply: ['برافو عليك! 👏 حطها في ماكينة Salla Box وخد فلوسك وعروضك على طول 💰'],
+        reply: ['برافو عليك! حطها في ماكينة Salla Box وخد فلوسك وعروضك على طول'],
       },
     ],
   },
   {
     tab: 'سلتي للأطفال',
-    emoji: '🧸',
+    icon: 'gamepad',
     title: 'بيزنس موديل الأطفال الجديد (Salla Kids)',
-    intro: ['تعالى بقا للبيزنس الجديد العبقري بتاعنا.. سلتي للأطفال 🎮'],
+    intro: ['تعالى بقا للبيزنس الجديد العبقري بتاعنا.. سلتي للأطفال'],
     question: 'عاوز تعلّم ابنك إزاي يعمل فلوس ويعتمد على نفسه من وهو صغير؟',
     options: [
       {
         label: 'آه، ياريت علّمنا إزاي!',
         reply: ['طب تعالى أقولك إزاي! بص يا سيد الناس ويا ست الكل:'],
         list: [
-          'هتشتريله صندوق (سلتي للأطفال) من المتاجر اللي شغالة معانا في محافظتك بسعر رخيص جدًا ومدعوم 🛍️',
-          'هيبدأ يملّا الصندوق بالمخلفات البلاستيكية والقزاز وهو فرحان بحصالته البيئية ♻️',
-          'أول ما يتملّي، افتحي تليفونك يا ست الكل، صوّري الصندوق، وابعتيلنا أوردر من التطبيق 📱',
-          'المندوب هيجيلكم يستلم، والطفل بيختار لعبة الـ 3D الذكية اللي عايزها، واللي بتتصنع بالكامل من القزاز والبلاستيك بتاعه هو! 🎮',
+          'هتشتريله صندوق (سلتي للأطفال) من المتاجر اللي شغالة معانا في محافظتك بسعر رخيص جدًا ومدعوم',
+          'هيبدأ يملّا الصندوق بالمخلفات البلاستيكية والقزاز وهو فرحان بحصالته البيئية',
+          'أول ما السلة تتملي، افتحي التطبيق يا ست الكل، صوّري السلة، وابعتيلنا الطلب',
+          'الطفل بيختار اللعبة اللي عايزها من التطبيق، والمندوب لما يوصلكم بيسلّمه اللعبة وبيديه فلوس الحاجة اللي في السلة نفسها!',
         ],
-        outro: 'بكده نكون زرعنا في عيالنا الوعي بالمحافظة على البيئة، وشجّعناه بلعبة وفلوس وجوايز، وعرّفناه يعني إيه نظافة، ومش هيتعبك يا ست الكل ولا هيتعبك يا سيد الناس! 🥳',
+        outro: 'بكده نكون زرعنا في عيالنا الوعي بالمحافظة على البيئة، وشجّعناه بلعبة وفلوس وجوايز، وعرّفناه يعني إيه نظافة، ومش هيتعبك يا ست الكل ولا هيتعبك يا سيد الناس!',
       },
     ],
   },
@@ -63,7 +63,7 @@ function Bot({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-end gap-2 sm:gap-3">
       <div className="w-10 h-10 shrink-0 rounded-full bg-green-100 border-2 border-green-200 flex items-center justify-center">
-        <Emoji3D size="text-xl">🤖</Emoji3D>
+        <Icon name="robot" className="w-6 h-6 text-green-700" />
       </div>
       <div className="max-w-[88%] bg-white border-2 border-green-100 rounded-2xl rounded-br-sm px-4 py-3 shadow-md text-sm sm:text-base text-gray-800 leading-relaxed">
         {children}
@@ -113,12 +113,11 @@ export function NewHowItWorks() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-gradient-to-b from-green-50 to-white" id="new-how-it-works">
-      <Emoji3DStyles />
-      <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold mb-4">
-            <Emoji3D size="text-lg">💬</Emoji3D> اتكلم مع سلتي
+            <Icon name="chat" className="w-5 h-5" /> اتكلم مع سلتي
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
             3 مواقف.. وسلتي <span className="text-green-600">هيقولك تعمل إيه</span>
@@ -135,7 +134,7 @@ export function NewHowItWorks() {
               <img src="/salti-logo.png" alt="سلتي للأطفال" className="w-12 h-12 rounded-full bg-white object-contain border-2 border-white" onError={() => setImageError(true)} />
             ) : (
               <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                <Emoji3D size="text-2xl">🤖</Emoji3D>
+                <Icon name="robot" className="w-7 h-7 text-white" />
               </div>
             )}
             <div className="min-w-0">
@@ -150,9 +149,9 @@ export function NewHowItWorks() {
           <div className="p-4 sm:p-6 space-y-4 bg-gradient-to-b from-green-50/60 to-white min-h-[24rem]">
             {/* بداية المحادثة: اختيار الموقف */}
             <Bot>
-              <RichText text="أهلاً بيك في سلتي 👋 أنا هنا أساعدك تحوّل مخلفاتك لفلوس وتحافظ على البيئة." />
+              أهلاً بيك في سلتي. أنا هنا أساعدك تحوّل مخلفاتك لفلوس وتحافظ على البيئة.
               <p className="mt-2 font-black text-gray-900">
-                <RichText text="حابب نتكلم في أنهي موقف؟ 👇" />
+                حابب نتكلم في أنهي موقف؟
               </p>
             </Bot>
 
@@ -165,13 +164,13 @@ export function NewHowItWorks() {
                     className="w-full flex items-center gap-4 p-4 rounded-2xl bg-white border-2 border-green-200 shadow-md hover:border-green-500 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-right"
                   >
                     <span className="w-14 h-14 shrink-0 rounded-2xl bg-gradient-to-br from-green-100 to-green-50 border-2 border-green-200 flex items-center justify-center">
-                      <Emoji3D size="text-3xl">{s.emoji}</Emoji3D>
+                      <Icon name={s.icon} className="w-8 h-8 text-green-700" />
                     </span>
                     <span className="flex-1 min-w-0">
                       <span className="block font-black text-gray-900 text-base sm:text-lg">{s.tab}</span>
                       <span className="block text-gray-600 text-xs sm:text-sm">{s.title}</span>
                     </span>
-                    <span className="text-green-600 font-black text-2xl">‹</span>
+                    <Icon name="chevron" className="w-6 h-6 text-green-600" strokeWidth={2.4} />
                   </button>
                 ))}
               </div>
@@ -179,7 +178,7 @@ export function NewHowItWorks() {
               <>
                 <div className="flex justify-end">
                   <div className="flex items-center gap-2 px-5 py-3 rounded-2xl rounded-bl-sm bg-green-600 text-white font-bold text-sm sm:text-base shadow-md">
-                    <Emoji3D size="text-xl" float={false}>{sc.emoji}</Emoji3D> {sc.tab}
+                    <Icon name={sc.icon} className="w-5 h-5" /> {sc.tab}
                   </div>
                 </div>
 
@@ -188,7 +187,7 @@ export function NewHowItWorks() {
                 ) : (
                   <>
                     {sc.intro.map((m, i) => (
-                      <Bot key={i}><RichText text={m} /></Bot>
+                      <Bot key={i}>{m}</Bot>
                     ))}
                     <Bot>
                       <span className="font-black text-gray-900">&quot;{sc.question}&quot;</span>
@@ -223,7 +222,7 @@ export function NewHowItWorks() {
                         ) : (
                           <>
                             {picked.reply.map((m, i) => (
-                              <Bot key={i}><RichText text={m} /></Bot>
+                              <Bot key={i}>{m}</Bot>
                             ))}
                             {picked.list && (
                               <Bot>
@@ -231,14 +230,14 @@ export function NewHowItWorks() {
                                   {picked.list.map((item, i) => (
                                     <li key={i} className="flex items-start gap-3">
                                       <span className="w-7 h-7 shrink-0 rounded-full bg-green-600 text-white font-black text-sm flex items-center justify-center">{i + 1}</span>
-                                      <span><RichText text={item} /></span>
+                                      <span>{item}</span>
                                     </li>
                                   ))}
                                 </ol>
                               </Bot>
                             )}
                             {picked.outro && (
-                              <Bot><RichText text={picked.outro} /></Bot>
+                              <Bot>{picked.outro}</Bot>
                             )}
                             <div className="flex flex-wrap gap-2 justify-end pt-2">
                               {sc.options.length > 1 && (
@@ -246,7 +245,7 @@ export function NewHowItWorks() {
                                   onClick={() => setChoice(null)}
                                   className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-white border-2 border-green-200 text-green-700 font-bold text-sm hover:border-green-400 transition-colors"
                                 >
-                                  <Emoji3D size="text-lg" float={false}>🔄</Emoji3D> جرّب إجابة تانية
+                                  <Icon name="refresh" className="w-4 h-4" /> جرّب إجابة تانية
                                 </button>
                               )}
                               <button

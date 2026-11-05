@@ -1,15 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { Emoji3D, Emoji3DStyles } from './emoji-3d'
+import { Icon, IconTile, IconName } from './svg-icons'
+import { whatsappLink } from './config'
 
-// غيّر الرقم برقم واتساب الشركة بالصيغة الدولية بدون + أو أصفار (مثال: 201000000000)
-const WHATSAPP_NUMBER = '201203062905'
-
-const features = [
-  { emoji: '🚚', title: 'التزام بمواعيد التسليم', text: 'شحنتك توصلك في ميعادها' },
-  { emoji: '✅', title: 'جودة وفرز نظيف', text: 'خامة نقية ومفرزة بعناية' },
-  { emoji: '📦', title: 'انتظام في التوريد', text: 'كميات ثابتة تعتمد عليها في شغلك' },
+const features: { icon: IconName; title: string; text: string }[] = [
+  { icon: 'truck', title: 'التزام بمواعيد التسليم', text: 'شحنتك توصلك في ميعادها' },
+  { icon: 'check', title: 'جودة وفرز نظيف', text: 'خامة نقية ومفرزة بعناية' },
+  { icon: 'package', title: 'انتظام في التوريد', text: 'كميات ثابتة تعتمد عليها في شغلك' },
 ]
 
 const scale = [
@@ -25,7 +23,7 @@ export function SupplySection() {
   const [phone, setPhone] = useState('')
 
   const open = (text: string) => {
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer')
+    window.open(whatsappLink(text), '_blank', 'noopener,noreferrer')
   }
 
   const submit = (e: React.FormEvent) => {
@@ -40,12 +38,11 @@ export function SupplySection() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-gradient-to-b from-white via-green-50 to-white" id="supply">
-      <Emoji3DStyles />
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         {/* النص */}
         <div>
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold mb-5">
-            <Emoji3D size="text-lg">🏭</Emoji3D> للمصانع والشركات
+            <Icon name="factory" className="w-5 h-5" /> للمصانع والشركات
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-5">
             من الكيلو للأطنان.. <span className="text-green-600">بنكفي احتياجات شغلك</span>
@@ -73,7 +70,7 @@ export function SupplySection() {
           <div className="grid sm:grid-cols-3 gap-3">
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-4 border-2 border-green-100 shadow-sm">
-                <Emoji3D size="text-3xl" float={false}>{f.emoji}</Emoji3D>
+                <IconTile name={f.icon} className="w-11 h-11" iconClassName="w-6 h-6" rounded="rounded-xl" />
                 <h3 className="font-black text-gray-900 text-sm sm:text-base mt-2 mb-1">{f.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{f.text}</p>
               </div>
@@ -84,7 +81,7 @@ export function SupplySection() {
         {/* الفورم */}
         <form onSubmit={submit} id="order-form" className="bg-white rounded-3xl shadow-2xl border-2 border-green-100 overflow-hidden">
           <div className="bg-gradient-to-r from-green-800 to-green-600 px-6 py-5 flex items-center gap-3">
-            <Emoji3D size="text-3xl">📦</Emoji3D>
+            <span className="w-12 h-12 rounded-2xl bg-white/15 text-white flex items-center justify-center"><Icon name="package" className="w-7 h-7" /></span>
             <div>
               <h3 className="text-white font-black text-lg sm:text-xl">اطلب شحنتك</h3>
               <p className="text-green-100 text-xs sm:text-sm">املا البيانات وهنكمل معاك على واتساب</p>
