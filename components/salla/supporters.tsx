@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Trophy, Building2, GraduationCap, Cpu, Award, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Trophy, Building2, GraduationCap, Cpu, Award } from 'lucide-react'
 import { getSecureSectionUrl } from '@/lib/secure-url'
 import { useState } from 'react'
 
@@ -26,14 +26,6 @@ const achievementImages = [
 export function Supporters() {
   const [currentImage, setCurrentImage] = useState(0)
 
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % achievementImages.length)
-  }
-
-  const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + achievementImages.length) % achievementImages.length)
-  }
-
   return (
     <>
       <style>{`
@@ -52,61 +44,45 @@ export function Supporters() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24 relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2">
 
-          <div className="relative order-last lg:order-first mx-auto w-full max-w-lg group flex flex-col gap-6">
-            {/* Image Gallery */}
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-yellow-400/40 via-amber-500/30 to-yellow-600/40 blur-2xl transition-all duration-700 group-hover:blur-3xl group-hover:scale-110 opacity-70" />
-              <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-transparent bg-gradient-to-br from-yellow-500 via-amber-400 to-yellow-600 shadow-2xl transition-all duration-700 hover:!-translate-y-4 hover:shadow-[0_20px_50px_rgba(234,179,8,0.5)]">
-                <div className="absolute inset-0 rounded-[2.5rem] border-[3px] border-black/20" />
-                <Image
-                  src={achievementImages[currentImage].src}
-                  alt={achievementImages[currentImage].title}
-                  width={1000}
-                  height={1000}
-                  className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
-              </div>
-
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 text-black flex items-center justify-center shadow-lg hover:bg-white transition-all z-20"
-                aria-label="الصورة السابقة"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 text-black flex items-center justify-center shadow-lg hover:bg-white transition-all z-20"
-                aria-label="الصورة التالية"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-
-              {/* Image Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                {achievementImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImage(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      index === currentImage ? 'bg-white scale-125' : 'bg-white/50'
-                    }`}
-                    aria-label={`الصورة ${index + 1}`}
+          <div className="relative order-last lg:order-first mx-auto w-full max-w-2xl group">
+            {/* Overlapping Horizontal Images Display */}
+            <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] w-full">
+              {achievementImages.map((img, index) => (
+                <div
+                  key={index}
+                  className={`absolute top-0 h-full rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 cursor-pointer ${
+                    index === 0 ? 'left-0 w-[70%] sm:w-[65%] z-10 hover:z-30 hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)]' :
+                    index === 1 ? 'left-[50%] sm:left-[55%] w-[70%] sm:w-[65%] z-20 hover:z-30 hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)]' :
+                    'left-[30%] sm:left-[35%] w-[70%] sm:w-[65%] z-30 hover:z-30 hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)]'
+                  }`}
+                  onClick={() => setCurrentImage(index)}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 z-10" />
+                  <Image
+                    src={img.src}
+                    alt={img.title}
+                    width={800}
+                    height={800}
+                    className="w-full h-full object-cover"
                   />
-                ))}
-              </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
+                    <p className="text-white font-bold text-sm sm:text-base drop-shadow-lg">{img.title}</p>
+                    <p className="text-white/90 text-xs sm:text-sm mt-1 drop-shadow">{img.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Current Image Info */}
-            <div className="text-center px-4">
-              <p className="font-heading text-lg font-bold text-foreground mb-2">
-                {achievementImages[currentImage].title}
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {achievementImages[currentImage].desc}
-              </p>
+            {/* Achievement Info Card */}
+            <div className="mt-6 bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-600 rounded-2xl p-6 shadow-xl">
+              <div className="text-center">
+                <p className="font-heading text-xl sm:text-2xl font-black text-white mb-2">
+                  {achievementImages[currentImage].title}
+                </p>
+                <p className="text-white/95 text-sm sm:text-base leading-relaxed">
+                  {achievementImages[currentImage].desc}
+                </p>
+              </div>
             </div>
 
             {/* SEO Hidden Caption - Only visible to search engines */}
