@@ -16,8 +16,6 @@ export function SectionWrapper({ children, className = '' }: SectionWrapperProps
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-        } else {
-          setIsVisible(false)
         }
       },
       { threshold: 0.2 }
