@@ -6,11 +6,11 @@ import { getSecureSectionUrl } from '@/lib/secure-url'
 
 const videos = [
   {
-    src: '/salla/videos/watn-digital.mp4',
-    title: 'لقاء تلفزيوني مع قناة وطن رقمي',
-    description: 'حوار خاص مع تطبيق سلة - تطبيق إعادة تدوير مصري',
-    icon: Tv,
-    thumbnail: '/salla/videos/thumbnails/watn-digital.png'
+    src: '/salla/videos/silicon-waha-pitch.mp4',
+    title: 'Waha Connect 4th edition',
+    description: 'Pitch at Silicon Waha - Honored by Dr. Rifaat Hegazy - تطبيق إعادة تدوير مصري',
+    icon: Award,
+    thumbnail: '/salla/videos/thumbnails/silicon-waha.png'
   },
   {
     src: '/salla/videos/hult-prize-interview.mp4',
