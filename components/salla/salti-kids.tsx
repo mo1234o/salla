@@ -123,7 +123,7 @@ export function SaltiKids() {
 
         {/* الألعاب */}
         <div id="kids-toys" className="mb-12 rounded-3xl bg-white border-2 border-green-100 shadow-lg p-6 sm:p-8">
-          <h3 className="text-2xl sm:text-3xl font-black text-center text-gray-900 mb-2">ألعاب بتتعمل من الإزاز بتاعك</h3>
+          <h3 className="text-2xl sm:text-3xl font-black text-center text-gray-900 mb-2">ألعاب بتتعمل من محتوياتك سلتك يا صغنن</h3>
           <p className="text-center text-gray-600 mb-6 text-sm sm:text-base">كل ما السلة تتملي، يختار لعبة جديدة</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {showcase.map((t) => (
