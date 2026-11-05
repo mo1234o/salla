@@ -1,28 +1,31 @@
 'use client'
 
 import React, { useState } from 'react'
+import {
+  Bot, MessageCircle, Home, GraduationCap, ToyBrick, Building2, Rocket, ShoppingBag, Recycle,
+  Smartphone, Gamepad2, Globe, PiggyBank, Target, Gift, Smile, Sprout, MapPin, CheckCircle2,
+  Building, Factory, Truck, Package, RefreshCw, Wallet, WavingHand, Hand, MoneyWithWings,
+  FaceWithHandOverMouth, WinkingFace, ClappingHands, MoneyBag, PartyPopper, RelievedFace,
+  Seedling, Pin, DeliveryTruck, City, CheckCircle, RotateCcw, ShieldCheck, FileText, Award,
+} from 'lucide-react'
 
-// صور Fluent Emoji 3D (Microsoft, MIT) - حطها في public/emoji
-const BASE = '/emoji'
-
-const FILES: Record<string, string> = {
-  '🤖': 'robot', '💬': 'speech-balloon', '🏠': 'house', '🎓': 'graduation-cap',
-  '🧸': 'teddy-bear', '🏢': 'office-building', '👋': 'waving-hand',
-  '👇': 'backhand-index-pointing-down', '💸': 'money-with-wings',
-  '🤭': 'face-with-hand-over-mouth', '😉': 'winking-face', '👏': 'clapping-hands',
-  '💰': 'money-bag', '🎮': 'video-game', '🛍': 'shopping-bags', '♻': 'recycling-symbol',
-  '📱': 'mobile-phone', '🥳': 'partying-face', '🚀': 'rocket',
-  '🌍': 'globe-showing-europe-africa', '🐷': 'pig-face', '🎯': 'bullseye',
-  '🎁': 'wrapped-gift', '😌': 'relieved-face', '🌱': 'seedling', '📍': 'round-pushpin',
-  '🚚': 'delivery-truck', '🏭': 'factory', '📦': 'package',
-  '🏙': 'cityscape', '✅': 'check-mark-button', '🔄': 'counterclockwise-arrows-button',
+// أيقونات SVG (lucide) بدل إيموجي الكيبورد. بنكتب الرمز جوه <Icon> وهو بيرسم الـ SVG
+const ICONS: Record<string, React.ElementType> = {
+  '🤖': Bot, '💬': MessageCircle, '🏠': Home, '🎓': GraduationCap, '🧸': ToyBrick, '🏢': Building2,
+  '🚀': Rocket, '🛍': ShoppingBag, '🛍️': ShoppingBag, '♻': Recycle, '📱': Smartphone, '🎮': Gamepad2, '🌍': Globe,
+  '🐷': PiggyBank, '🎯': Target, '🎁': Gift, '😌': RelievedFace, '🌱': Seedling, '📍': Pin,
+  '✅': CheckCircle, '🏙': City, '🏭': Factory, '🚚': DeliveryTruck, '📦': Package, '🔄': RotateCcw, '💰': MoneyBag,
+  '👋': WavingHand, '👇': Hand, '💸': MoneyWithWings, '🤭': FaceWithHandOverMouth, '😉': WinkingFace,
+  '👏': ClappingHands, '🥳': PartyPopper, '🏅': Award, '📄': FileText, '🛡️': ShieldCheck,
 }
+
+type Tone = 'brand' | 'white' | 'current'
 
 // بيتحط مرة واحدة جوه كل قسم (للحركة الخفيفة بس)
 export function Emoji3DStyles() {
   return (
     <style>{`
-      .e3d-img{display:inline-block;width:1em;height:1em;vertical-align:-0.15em;filter:drop-shadow(0 4px 4px rgba(21,128,61,.25))}
+      .e3d-img{display:inline-block;width:1em;height:1em;vertical-align:-0.15em}
       .e3d-float{animation:e3dFloat 3s ease-in-out infinite}
       @keyframes e3dFloat{0%,100%{translate:0 0}50%{translate:0 -3px}}
       @media (prefers-reduced-motion: reduce){.e3d-float{animation:none}}
@@ -31,24 +34,17 @@ export function Emoji3DStyles() {
 }
 
 export function Emoji3D({ children, size = 'text-2xl', float = true }: { children: React.ReactNode; size?: string; float?: boolean }) {
-  const [failed, setFailed] = useState(false)
   const ch = String(children).replace(/\uFE0F/g, '')
-  const file = FILES[ch]
+  const C = ICONS[ch]
 
-  if (!file || failed) {
+  if (!C) {
     return <span role="img" aria-hidden="true" className={size}>{children}</span>
   }
-  return (
-    <span className={size} aria-hidden="true">
-      <img
-        src={`${BASE}/${file}.png`}
-        alt=""
-        draggable={false}
-        className={`e3d-img ${float ? 'e3d-float' : ''}`}
-        onError={() => setFailed(true)}
-      />
-    </span>
-  )
+
+  const svg = <C aria-hidden="true" strokeWidth={1.8} style={{ width: '1em', height: '1em' }} />
+  const className = `${size} inline-flex shrink-0 align-middle leading-none ${float ? 'e3d-float' : ''}`
+
+  return <span aria-hidden="true" className={className}>{svg}</span>
 }
 
 // بيحوّل أي إيموجي جوه النص لصورة 3D
