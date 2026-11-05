@@ -7,10 +7,10 @@ import { Icon, IconName, Basket, ToyTeddy, ToyRocket, ToyCar, ToyRobot, Cash } f
    الأرقام والأسماء في الشاشات للتوضيح فقط. */
 
 export const TOYS = [
-  { name: 'دبدوب', Art: ToyTeddy, need: 'بيتعمل من 20 إزازة' },
-  { name: 'صاروخ', Art: ToyRocket, need: 'بيتعمل من 25 إزازة' },
-  { name: 'عربية', Art: ToyCar, need: 'بيتعمل من 15 إزازة' },
-  { name: 'روبوت', Art: ToyRobot, need: 'بيتعمل من 30 إزازة' },
+  { name: 'دبدوب', Art: ToyTeddy, need: 'بيتعمل من 20 إزازة و 10 كانز' },
+  { name: 'صاروخ', Art: ToyRocket, need: 'بيتعمل من 25 إزازة و 15 كانز' },
+  { name: 'عربية', Art: ToyCar, need: 'بيتعمل من 15 إزازة و 8 بلاستيك' },
+  { name: 'روبوت', Art: ToyRobot, need: 'بيتعمل من 30 إزازة و 20 بلاستيك' },
 ]
 
 export type ScreenId = 'stores' | 'basket' | 'home' | 'camera' | 'toys' | 'track'
@@ -97,6 +97,7 @@ export function HomeScreen({ onSend }: { onSend?: () => void }) {
             <div dir="ltr" className="text-[15px] font-extrabold italic">ADAM</div>
           </div>
           <span className="absolute bottom-4 left-[50%] px-4 py-2 rounded-full bg-white text-[#1b5e3b] text-[11px] font-extrabold shadow-md">استبدل</span>
+          <div className="absolute bottom-14 left-4 text-[9px] opacity-80">إزازة، كانز، بلاستيك، كرتون</div>
         </div>
 
         <h4 className="mx-3 mt-4 mb-2 text-[14px] font-extrabold text-gray-900">إيه اللي عايز تعمله؟</h4>
@@ -196,6 +197,14 @@ export function BasketScreen() {
             <span className="w-8 h-8 rounded-xl bg-[#e6f4ec] text-[#2e8b57] flex items-center justify-center"><Icon name="can" className="w-[18px] h-[18px]" /></span>
             <div><div className="text-[14px] font-extrabold text-gray-900 leading-none">9</div><div className="text-[9.5px] text-gray-500 mt-1">كانز</div></div>
           </div>
+          <div className="rounded-2xl bg-white shadow-[0_3px_12px_rgba(0,0,0,.06)] p-3 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-xl bg-[#e6f4ec] text-[#2e8b57] flex items-center justify-center"><Icon name="recycle" className="w-[18px] h-[18px]" /></span>
+            <div><div className="text-[14px] font-extrabold text-gray-900 leading-none">5</div><div className="text-[9.5px] text-gray-500 mt-1">بلاستيك</div></div>
+          </div>
+          <div className="rounded-2xl bg-white shadow-[0_3px_12px_rgba(0,0,0,.06)] p-3 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-xl bg-[#e6f4ec] text-[#2e8b57] flex items-center justify-center"><Icon name="box" className="w-[18px] h-[18px]" /></span>
+            <div><div className="text-[14px] font-extrabold text-gray-900 leading-none">3</div><div className="text-[9.5px] text-gray-500 mt-1">كرتون</div></div>
+          </div>
         </div>
         <p className="mt-3 text-[10.5px] text-gray-500 text-center leading-relaxed">أول ما السلة تتملي، صوّرها وابعت الطلب من الرئيسية</p>
       </div>
@@ -231,14 +240,15 @@ export function CameraScreen({ captured, onShoot, onContinue }: { captured: bool
           <div className="flex items-center gap-2 text-[#1b5e3b] font-extrabold text-[12px] mb-2">
             <Icon name="check" className="w-4 h-4" /> تم التعرّف على السلة
           </div>
-          <div className="grid grid-cols-3 gap-1.5 text-center mb-2.5">
-            {[['14', 'إزازة'], ['9', 'كانز'], ['~35', 'جنيه']].map(([v, l]) => (
+          <div className="grid grid-cols-2 gap-1.5 text-center mb-2.5">
+            {[['14', 'إزازة'], ['9', 'كانز'], ['5', 'بلاستيك'], ['3', 'كرتون']].map(([v, l]) => (
               <div key={l} className="rounded-xl bg-[#e6f4ec] py-1.5">
                 <div className="text-[13px] font-extrabold text-[#1b5e3b] leading-none">{v}</div>
                 <div className="text-[9.5px] text-gray-500 mt-0.5">{l}</div>
               </div>
             ))}
           </div>
+          <div className="text-center text-[11px] font-extrabold text-[#1b5e3b] mb-2.5">~45 جنيه</div>
           <button type="button" onClick={onContinue} className={`w-full py-2 rounded-xl ${GREEN} text-white text-[12px] font-extrabold`}>كمّل واختار اللعبة</button>
         </div>
       )}
@@ -299,7 +309,7 @@ export function TrackScreen({ toy }: { toy: number }) {
           <T.Art className="w-[44px] h-[44px]" />
           <div className="flex-1">
             <div className="text-[12px] font-extrabold text-gray-900">استبدال سلتي بـ {T.name}</div>
-            <div className="text-[10px] text-gray-500 mt-0.5">14 إزازة + 9 كانز</div>
+            <div className="text-[10px] text-gray-500 mt-0.5">إزازة، كانز، بلاستيك، كرتون</div>
           </div>
           <span className="px-2 py-1 rounded-full bg-[#e6f4ec] text-[#2e8b57] text-[9.5px] font-extrabold">جاري</span>
         </div>
@@ -323,9 +333,9 @@ export function TrackScreen({ toy }: { toy: number }) {
           <div className="flex items-center justify-around bg-white/95 rounded-xl py-2">
             <div className="flex flex-col items-center"><T.Art className="w-[40px] h-[40px]" /><span className="text-[10px] font-extrabold text-gray-800">{T.name}</span></div>
             <span className="text-[#2e8b57] font-extrabold text-lg">+</span>
-            <div className="flex flex-col items-center"><Cash className="w-[52px] h-[32px]" /><span className="text-[10px] font-extrabold text-gray-800">35 جنيه كاش</span></div>
+            <div className="flex flex-col items-center"><Cash className="w-[52px] h-[32px]" /><span className="text-[10px] font-extrabold text-gray-800">45 جنيه كاش</span></div>
           </div>
-          <div className="text-[9.5px] opacity-90 mt-2 leading-relaxed">الفلوس هي تمن الإزاز والكانز اللي في سلتك، واللعبة هدية الاستبدال</div>
+          <div className="text-[9.5px] opacity-90 mt-2 leading-relaxed">الفلوس هي تمن الإزازة والكانز والبلاستيك والكرتون اللي في سلتك، واللعبة هدية الاستبدال</div>
         </div>
       </div>
       <BottomNav active="orders" />
