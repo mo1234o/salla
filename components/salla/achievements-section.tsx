@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { Trophy, Award, Star } from 'lucide-react'
+import { Trophy } from 'lucide-react'
+import { useState } from 'react'
 
 const achievements = [
   {
@@ -9,115 +10,201 @@ const achievements = [
     title: 'المركز الأول',
     subtitle: 'Impact Makers',
     desc: 'مسابقة نُعيد.. نُبدع.. نَبني 2026',
-    icon: Trophy,
-    color: 'from-yellow-500 to-amber-500',
-    position: 'top'
+    position: 'p1',
+    rank: '1st',
+    color: 'from-green-500 to-green-600',
+    textColor: 'text-green-700',
+    baseColor: 'bg-green-500',
   },
   {
     src: '/salla/img-5.jpg',
     title: 'المركز الثالث',
     subtitle: 'Hult Prize',
     desc: 'تكريم على مستوى مصر',
-    icon: Award,
-    color: 'from-blue-500 to-indigo-500',
-    position: 'middle'
+    position: 'p2',
+    rank: '3rd',
+    color: 'from-blue-500 to-blue-600',
+    textColor: 'text-blue-700',
+    baseColor: 'bg-blue-500',
   },
   {
     src: '/salla/silicon-waha-top3.jpg',
     title: 'المركز الثالث',
     subtitle: 'Silicon Waha',
     desc: 'Hackathon For Impact 7th Edition',
-    icon: Star,
-    color: 'from-green-500 to-emerald-500',
-    position: 'bottom'
+    position: 'p3',
+    rank: 'Top 3',
+    color: 'from-blue-500 to-blue-600',
+    textColor: 'text-blue-700',
+    baseColor: 'bg-blue-500',
   },
 ]
 
 export function AchievementsSection() {
-  return (
-    <section className="py-16 px-4 sm:px-6 bg-gradient-to-b from-gray-50 to-white" id="achievements">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 rounded-full bg-yellow-100 text-yellow-700 px-4 py-1.5 text-sm font-bold mb-4">
-            <Trophy className="w-4 h-4" />
-            إنجازاتنا
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-            مراكز <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-amber-600 to-orange-600">متقدمة</span> في مسابقات عالمية
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            فاز فريق سلة بمواقع متقدمة في مسابقات عالمية ومحلية، وهذا دليل على التزامنا بالتميز والابتكار
-          </p>
-        </div>
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
-        {/* Pyramid/Triangle Layout */}
-        <div className="flex flex-col items-center gap-6 md:gap-8">
-          {/* Top Achievement - Largest */}
-          <div className="relative group">
-            <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-tr from-yellow-400/40 via-amber-500/30 to-yellow-600/40 blur-2xl transition-all duration-700 group-hover:blur-3xl group-hover:scale-110 opacity-70" />
-            <div className="relative overflow-hidden rounded-[2rem] border-[8px] border-transparent bg-gradient-to-br from-yellow-500 via-amber-400 to-yellow-600 shadow-2xl transition-all duration-700 hover:!-translate-y-4 hover:shadow-[0_20px_50px_rgba(234,179,8,0.5)]">
-              <div className="absolute inset-0 rounded-[2rem] border-[2px] border-black/20" />
-              <Image
-                src={achievements[0].src}
-                alt={achievements[0].title}
-                width={800}
-                height={800}
-                className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
-              <div className="absolute top-4 right-4">
-                <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                  <achievements[0].icon className="w-6 h-6 text-yellow-600" />
-                </div>
-              </div>
-            </div>
-            <div className="mt-4 text-center">
-              <h3 className="text-xl sm:text-2xl font-black text-gray-900">{achievements[0].title}</h3>
-              <p className="text-sm sm:text-base font-semibold text-yellow-600">{achievements[0].subtitle}</p>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1">{achievements[0].desc}</p>
-            </div>
+  return (
+    <>
+      <style>{`
+        @keyframes rise {
+          from { transform: scaleY(0); }
+          to { transform: scaleY(1); }
+        }
+        .step-p1 {
+          height: 150px;
+          background: linear-gradient(180deg, #5cb848, #3f9a33);
+          border-color: #3f9a33;
+          color: #fff;
+          animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+          animation-delay: 0.1s;
+        }
+        .step-p2 {
+          height: 96px;
+          background: #eef8e9;
+          border-color: #d9ecd0;
+          color: #1b6aae;
+          animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+          animation-delay: 0.3s;
+        }
+        .step-p3 {
+          height: 70px;
+          background: #eef8e9;
+          border-color: #d9ecd0;
+          color: #1b6aae;
+          animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+          animation-delay: 0.45s;
+        }
+        @media (max-width: 820px) {
+          .step-p1 { height: 104px; }
+          .step-p2 { height: 68px; }
+          .step-p3 { height: 48px; }
+        }
+      `}</style>
+
+      <section className="py-16 px-4 sm:px-6 bg-gradient-to-b from-gray-50 to-white" id="achievements">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 rounded-full bg-yellow-100 text-yellow-700 px-4 py-1.5 text-sm font-bold mb-4">
+              <Trophy className="w-4 h-4" />
+              إنجازاتنا
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              مراكز <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-amber-600 to-orange-600">متقدمة</span> في مسابقات عالمية
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              فاز فريق سلة بمواقع متقدمة في مسابقات عالمية ومحلية، وهذا دليل على التزامنا بالتميز والابتكار
+            </p>
           </div>
 
-          {/* Middle Row - Two Cards */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-12 w-full">
-            {achievements.slice(1).map((achievement, index) => (
-              <div key={achievement.title} className="relative group flex-1 max-w-xs">
-                <div className="absolute -inset-4 rounded-[1.5rem] bg-gradient-to-tr from-blue-400/40 via-indigo-500/30 to-green-500/40 blur-xl transition-all duration-700 group-hover:blur-2xl group-hover:scale-110 opacity-70" />
-                <div className="relative overflow-hidden rounded-[1.5rem] border-[6px] border-transparent bg-gradient-to-br from-blue-500 via-indigo-500 to-green-500 shadow-xl transition-all duration-700 hover:!-translate-y-3 hover:shadow-[0_15px_40px_rgba(59,130,246,0.5)]">
-                  <div className="absolute inset-0 rounded-[1.5rem] border-[2px] border-black/20" />
+          {/* Podium Layout */}
+          <div className="flex flex-col sm:flex-row items-end justify-center gap-4 sm:gap-6 max-w-4xl mx-auto">
+            {/* Position 2 (Left) */}
+            <div className="flex flex-col items-center flex-1 max-w-xs order-2 sm:order-1">
+              <div className="w-full bg-white rounded-[26px] p-3 sm:p-4 border border-[#d9ecd0] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                   onClick={() => setSelectedImage(achievements[1].src)}>
+                <div className="overflow-hidden rounded-[16px]">
                   <Image
-                    src={achievement.src}
-                    alt={achievement.title}
+                    src={achievements[1].src}
+                    alt={achievements[1].title}
                     width={400}
                     height={400}
-                    className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full aspect-square object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
-                  <div className="absolute top-3 right-3">
-                    <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                      <achievement.icon className="w-5 h-5 text-blue-600" />
-                    </div>
-                  </div>
                 </div>
-                <div className="mt-3 text-center">
-                  <h3 className="text-lg sm:text-xl font-black text-gray-900">{achievement.title}</h3>
-                  <p className="text-xs sm:text-sm font-semibold text-blue-600">{achievement.subtitle}</p>
-                  <p className="text-xs text-gray-600 mt-1">{achievement.desc}</p>
-                </div>
+                <h2 className="mt-3 text-center text-lg sm:text-xl font-extrabold text-blue-700">
+                  {achievements[1].title}
+                </h2>
               </div>
-            ))}
+              <div className="step-p2 mt-3 sm:mt-4 w-full rounded-[22px_22px_0_0] flex items-center justify-center border-[#d9ecd0] border border-b-0 font-extrabold">
+                <span className="text-2xl sm:text-3xl font-black">3<small className="text-sm sm:text-base ml-1 font-medium">rd</small></span>
+              </div>
+            </div>
+
+            {/* Position 1 (Center - Largest) */}
+            <div className="flex flex-col items-center flex-1 max-w-sm order-1 sm:order-2 z-10">
+              <div className="w-full bg-white rounded-[26px] p-3 sm:p-4 border-2 border-green-500 shadow-2xl hover:shadow-[0_28px_60px_-24px_rgba(63,154,51,0.6)] transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                   onClick={() => setSelectedImage(achievements[0].src)}>
+                <div className="overflow-hidden rounded-[16px]">
+                  <Image
+                    src={achievements[0].src}
+                    alt={achievements[0].title}
+                    width={500}
+                    height={500}
+                    className="w-full aspect-square object-cover"
+                  />
+                </div>
+                <h2 className="mt-3 text-center text-xl sm:text-2xl font-extrabold text-green-700">
+                  {achievements[0].title}
+                </h2>
+              </div>
+              <div className="step-p1 mt-3 sm:mt-4 w-full rounded-[22px_22px_0_0] flex items-center justify-center border-green-600 border border-b-0 font-extrabold">
+                <span className="text-3xl sm:text-4xl font-black">1<small className="text-lg sm:text-xl ml-1 font-medium">st</small></span>
+              </div>
+            </div>
+
+            {/* Position 3 (Right) */}
+            <div className="flex flex-col items-center flex-1 max-w-xs order-3">
+              <div className="w-full bg-white rounded-[26px] p-3 sm:p-4 border border-[#d9ecd0] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                   onClick={() => setSelectedImage(achievements[2].src)}>
+                <div className="overflow-hidden rounded-[16px]">
+                  <Image
+                    src={achievements[2].src}
+                    alt={achievements[2].title}
+                    width={400}
+                    height={400}
+                    className="w-full aspect-square object-cover"
+                  />
+                </div>
+                <h2 className="mt-3 text-center text-lg sm:text-xl font-extrabold text-blue-700">
+                  {achievements[2].title}
+                </h2>
+              </div>
+              <div className="step-p3 mt-3 sm:mt-4 w-full rounded-[22px_22px_0_0] flex items-center justify-center border-[#d9ecd0] border border-b-0 font-extrabold">
+                <span className="text-2xl sm:text-3xl font-black">Top 3</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Base */}
+          <div className="mt-0 h-1 rounded-full bg-gradient-to-r from-transparent via-green-500 to-transparent max-w-4xl mx-auto" />
+
+          {/* Image Modal */}
+          {selectedImage && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+              onClick={() => setSelectedImage(null)}
+            >
+              <div className="relative max-w-4xl w-full">
+                <button
+                  className="absolute -top-2 right-0 w-10 h-10 rounded-full bg-green-500 text-white text-2xl font-bold shadow-lg hover:bg-green-600 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setSelectedImage(null)
+                  }}
+                >
+                  ×
+                </button>
+                <Image
+                  src={selectedImage}
+                  alt="Enlarged achievement"
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto max-h-[86vh] object-contain rounded-[18px]"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* SEO Hidden Text */}
+          <div className="sr-only" aria-hidden="true">
+            <p>
+              فريق Salla Team حصل على المركز الأول في مسابقة نُعيد.. نُبدع.. نَبني 2026، والمركز الثالث في Hult Prize على مستوى مصر، والمركز الثالث في Hackathon For Impact 7th Edition من Silicon Waha.
+              Impact Makers Salla Team هو الفائز رقم واحد في تدوير المخلفات وإعادة التدوير في مصر.
+            </p>
           </div>
         </div>
-
-        {/* SEO Hidden Text */}
-        <div className="sr-only" aria-hidden="true">
-          <p>
-            فريق Salla Team حصل على المركز الأول في مسابقة نُعيد.. نُبدع.. نَبني 2026، والمركز الثالث في Hult Prize على مستوى مصر، والمركز الثالث في Hackathon For Impact 7th Edition من Silicon Waha.
-            Impact Makers Salla Team هو الفائز رقم واحد في تدوير المخلفات وإعادة التدوير في مصر.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
