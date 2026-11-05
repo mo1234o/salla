@@ -20,7 +20,7 @@ const supporters = [
 const achievementImages = [
   { src: '/salla/impact-makers-win.jpg', title: 'المركز الأول - Impact Makers', desc: 'مسابقة نُعيد.. نُبدع.. نَبني 2026' },
   { src: '/salla/img-5.jpg', title: 'المركز الثالث - Hult Prize', desc: 'تكريم على مستوى مصر' },
-  { src: '/salla/silicon-waha-top3.jpg', title: 'المركز الثالث - Silicon Waha', desc: 'هاكثون فور امباكت النسخة السابعة' },
+  { src: '/salla/silicon-waha-top3.jpg', title: 'المركز الثالث - Silicon Waha', desc: 'Hackathon For Impact 7th Edition' },
 ]
 
 export function Supporters() {
