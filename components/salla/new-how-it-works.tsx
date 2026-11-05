@@ -1,177 +1,269 @@
 'use client'
 
-import { useState } from 'react'
-import { Smartphone, Trash2, FlaskConical, Recycle, Sparkles, DollarSign, Gift, Gamepad2, Camera, Package, ArrowRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Emoji3D, Emoji3DStyles, RichText } from './emoji-3d'
+
+type Option = { label: string; reply: string[]; list?: string[]; outro?: string }
+type Scenario = { tab: string; emoji: string; title: string; intro: string[]; question: string; options: Option[] }
+
+const scenarios: Scenario[] = [
+  {
+    tab: 'في البيت',
+    emoji: '🏠',
+    title: 'فرز من المنبع والتخلص السريع',
+    intro: ['يا هلا بيك يا سيد الناس ويا ست الكل في تطبيق سلتي (Salla) من قلب كرياتيفا المنصورة بمحافظة الدقهلية 🏢. قولنا كده..'],
+    question: 'عندك مخلفات صلبة أو زبالة في البيت وعاوز تخلص منها وتكسب؟',
+    options: [
+      {
+        label: 'آه، عندي ومحتار فيها',
+        reply: ['طب كويس جدًا! الموضوع بسيط خالص: جمّع كل نوع لوحده (بلاستيك، كانز، ورق)، وحمّل التطبيق، وصوّر المخلفات، وحدد مكانك على الخريطة.. وإحنا هنجيلك لحد باب البيت في أي مكان في الجمهورية نوزن ونستلم ونحوّلك المكافآت والفلوس فورًا! 💸'],
+      },
+    ],
+  },
+  {
+    tab: 'في الشارع والجامعة',
+    emoji: '🎓',
+    title: 'ماكينات الشارع والجامعات (Salla Box)',
+    intro: ['طب ركّز معايا في دي.. لو إنت في الجامعة أو ماشي في أي شارع في مصر، وخلصت إزازة المية أو علبة الكانز..'],
+    question: 'هل رميتها في الأرض؟',
+    options: [
+      {
+        label: 'آه.. رميتها معلش',
+        reply: ['يا عم ما تعملهاش بقا! 🤭 كده بتضيّع ثروة وبتضر بلدنا. ما تحطهم في ماكينة Salla Box الذكية المنتشرة حواليك، وتاخد فلوس كاش وعروض وخصومات كتيرة جدًا من المتاجر اللي شغالة معانا، وتستفيد بالاتنين مع بعض! نظافة وجيبك عمران 😉'],
+      },
+      {
+        label: 'لأ، مستني صندوق',
+        reply: ['برافو عليك! 👏 حطها في ماكينة Salla Box وخد فلوسك وعروضك على طول 💰'],
+      },
+    ],
+  },
+  {
+    tab: 'سلتي للأطفال',
+    emoji: '🧸',
+    title: 'بيزنس موديل الأطفال الجديد (Salla Kids)',
+    intro: ['تعالى بقا للبيزنس الجديد العبقري بتاعنا.. سلتي للأطفال 🎮'],
+    question: 'عاوز تعلّم ابنك إزاي يعمل فلوس ويعتمد على نفسه من وهو صغير؟',
+    options: [
+      {
+        label: 'آه، ياريت علّمنا إزاي!',
+        reply: ['طب تعالى أقولك إزاي! بص يا سيد الناس ويا ست الكل:'],
+        list: [
+          'هتشتريله صندوق (سلتي للأطفال) من المتاجر اللي شغالة معانا في محافظتك بسعر رخيص جدًا ومدعوم 🛍️',
+          'هيبدأ يملّا الصندوق بالمخلفات البلاستيكية والقزاز وهو فرحان بحصالته البيئية ♻️',
+          'أول ما يتملّي، افتحي تليفونك يا ست الكل، صوّري الصندوق، وابعتيلنا أوردر من التطبيق 📱',
+          'المندوب هيجيلكم يستلم، والطفل بيختار لعبة الـ 3D الذكية اللي عايزها، واللي بتتصنع بالكامل من القزاز والبلاستيك بتاعه هو! 🎮',
+        ],
+        outro: 'بكده نكون زرعنا في عيالنا الوعي بالمحافظة على البيئة، وشجّعناه بلعبة وفلوس وجوايز، وعرّفناه يعني إيه نظافة، ومش هيتعبك يا ست الكل ولا هيتعبك يا سيد الناس! 🥳',
+      },
+    ],
+  },
+]
+
+function Bot({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-end gap-2 sm:gap-3">
+      <div className="w-10 h-10 shrink-0 rounded-full bg-green-100 border-2 border-green-200 flex items-center justify-center">
+        <Emoji3D size="text-xl">🤖</Emoji3D>
+      </div>
+      <div className="max-w-[88%] bg-white border-2 border-green-100 rounded-2xl rounded-br-sm px-4 py-3 shadow-md text-sm sm:text-base text-gray-800 leading-relaxed">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+function Typing() {
+  return (
+    <Bot>
+      <div className="flex gap-1 py-1" aria-label="سلتي بيكتب">
+        {[0, 1, 2].map((i) => (
+          <span key={i} className="w-2 h-2 rounded-full bg-green-500 animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />
+        ))}
+      </div>
+    </Bot>
+  )
+}
 
 export function NewHowItWorks() {
-  const [activeMethod, setActiveMethod] = useState(0)
-  const [hoveredMethod, setHoveredMethod] = useState<number | null>(null)
+  const [active, setActive] = useState<number | null>(null)
+  const [choice, setChoice] = useState<number | null>(null)
+  const [typing, setTyping] = useState(false)
+  const [imageError, setImageError] = useState(false)
 
-  const methods = [
-    {
-      icon: <Smartphone className="w-12 h-12" />,
-      title: 'عندك مخلفات؟',
-      subtitle: 'اه طب كويس!',
-      description: 'جمع كل نوع لوحده، حمل التطبيق، صوره، حدد مكانك، واحنا نجيلك!',
-      color: 'from-blue-500 to-indigo-500',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200',
-      steps: [
-        'اجمع المخلفات حسب النوع (بلاستيك، كانز، كرتون، إلخ)',
-        'حمّل تطبيق سلة على موبايلك',
-        'صور المخلفات وحدد المكان',
-        'احنا نجيلك ونجمعها من عندك'
-      ]
-    },
-    {
-      icon: <Trash2 className="w-12 h-12" />,
-      title: 'عندك زبالة؟',
-      subtitle: 'نفس الحاجة كدا!',
-      description: 'مش لازم تزود نفسك، احنا نجيلك ونجمعها من عندك بكاش لحظي.',
-      color: 'from-violet-500 to-purple-500',
-      bgColor: 'bg-violet-50',
-      borderColor: 'border-violet-200',
-      steps: [
-        'عندك زبالة كتير؟',
-        'موبايلك وحدك كفاية',
-        'نجيلك في أي وقت',
-        'نقدرها لك فوراً في المحفظة'
-      ]
-    },
-    {
-      icon: <FlaskConical className="w-12 h-12" />,
-      title: 'في الجامعة؟',
-      subtitle: 'خلصت قزازة؟',
-      description: 'معلش لو رميتها، بتعبيط! حطها في Salla Box وخد فلوس وعروض وخصومات!',
-      color: 'from-fuchsia-500 to-pink-500',
-      bgColor: 'bg-fuchsia-50',
-      borderColor: 'border-fuchsia-200',
-      steps: [
-        'خلصت قزازة مية أو كنزاية؟',
-        'لا ترميها في الزبالة',
-        'حطها في ماكينة Salla Box',
-        'اخد فلوس، عروض، وخصومات كتير'
-      ]
-    },
-    {
-      icon: <Gamepad2 className="w-12 h-12" />,
-      title: 'سلتي للأطفال',
-      subtitle: 'تعليمهم الادخار!',
-      description: 'تعليم ابنك ازاي يعمل فلوس وهو صغير - يشتري سلتي، يملؤها بالمخلفات، ويختار لعبة!',
-      color: 'from-rose-500 to-orange-500',
-      bgColor: 'bg-rose-50',
-      borderColor: 'border-rose-200',
-      steps: [
-        'اشتري سلتي من المتاجر الشغالة معنا',
-        'ابنك يملؤها بالمخلفات البلاستيكية والقزازي',
-        'يفتح التطبيق، يصور، ويبعث أوردر',
-        'يختار اللعبة اللي عايزها (مصنوعة من القزايز)'
-      ]
-    }
-  ]
+  const sc = active !== null ? scenarios[active] : null
+  const picked = sc && choice !== null ? sc.options[choice] : null
+
+  // "سلتي بيكتب..." بعد اختيار الموقف وبعد اختيار الإجابة
+  useEffect(() => {
+    if (active === null) return
+    setTyping(true)
+    const t = setTimeout(() => setTyping(false), choice === null ? 700 : 900)
+    return () => clearTimeout(t)
+  }, [active, choice])
+
+  const pickScenario = (i: number) => {
+    setActive(i)
+    setChoice(null)
+  }
+  const backToMenu = () => {
+    setActive(null)
+    setChoice(null)
+    setTyping(false)
+  }
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-gradient-to-b from-indigo-50 via-purple-50 to-pink-50" id="new-how-it-works">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 px-4 sm:px-6 bg-gradient-to-b from-green-50 to-white" id="new-how-it-works">
+      <Emoji3DStyles />
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 rounded-full text-sm font-bold mb-4 animate-pulse">
-            طرق جديدة
+        <div className="text-center mb-10">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold mb-4">
+            <Emoji3D size="text-lg">💬</Emoji3D> اتكلم مع سلتي
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-            4 طرق <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">مبتكرة</span> للاستفادة من المخلفات
+            3 مواقف.. وسلتي <span className="text-green-600">هيقولك تعمل إيه</span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            اختر الطريقة اللي تناسبك، واحنا نوفرلك أسهل وأسرع طريقة لتحويل المخلفات لفلوس
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            ابدأ الشات، واختار الموقف اللي يشبهك، وهتعرف أسهل طريقة تحوّل بيها المخلفات لفلوس
           </p>
         </div>
 
-        {/* Methods Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {methods.map((method, index) => (
-            <div
-              key={index}
-              onClick={() => setActiveMethod(index)}
-              onMouseEnter={() => setHoveredMethod(index)}
-              onMouseLeave={() => setHoveredMethod(null)}
-              className={`cursor-pointer rounded-3xl p-6 sm:p-8 transition-all duration-300 border-2 ${
-                activeMethod === index
-                  ? `${method.bgColor} ${method.borderColor} shadow-2xl scale-105`
-                  : 'bg-white border-gray-200 hover:border-purple-300 shadow-lg hover:scale-102'
-              } ${hoveredMethod === index ? 'scale-102' : ''}`}
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div className={`p-3 rounded-xl ${method.bgColor} ${method.borderColor} flex-shrink-0 transition-transform duration-300 ${hoveredMethod === index ? 'scale-110 rotate-12' : ''}`}>
-                  <div className={`text-transparent bg-clip-text bg-gradient-to-br ${method.color}`}>
-                    {method.icon}
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-1">{method.title}</h3>
-                  <p className="text-sm sm:text-base font-semibold text-gray-600">{method.subtitle}</p>
-                </div>
-                {activeMethod === index && (
-                  <ArrowRight className="w-6 h-6 text-purple-600 animate-bounce" />
-                )}
+        {/* Chat card */}
+        <div className="bg-white rounded-3xl shadow-2xl border-2 border-green-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-green-800 to-green-600 px-5 py-4 flex items-center gap-3">
+            {active === 2 && !imageError ? (
+              <img src="/salti-logo.png" alt="سلتي للأطفال" className="w-12 h-12 rounded-full bg-white object-contain border-2 border-white" onError={() => setImageError(true)} />
+            ) : (
+              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                <Emoji3D size="text-2xl">🤖</Emoji3D>
               </div>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">{method.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {method.steps.slice(0, 2).map((step, i) => (
-                  <span key={i} className="text-xs sm:text-sm px-3 py-1 bg-white rounded-full border-2 border-gray-200">
-                    {step}
-                  </span>
+            )}
+            <div className="min-w-0">
+              <h3 className="text-white font-black text-base sm:text-lg">سلتي</h3>
+              <p className="text-green-100 text-xs sm:text-sm truncate">{sc ? sc.title : 'مساعدك لتحويل المخلفات لفلوس'}</p>
+            </div>
+            <span className="mr-auto flex items-center gap-1 text-xs text-green-100">
+              <span className="w-2 h-2 rounded-full bg-green-300 animate-pulse" /> متصل
+            </span>
+          </div>
+
+          <div className="p-4 sm:p-6 space-y-4 bg-gradient-to-b from-green-50/60 to-white min-h-[24rem]">
+            {/* بداية المحادثة: اختيار الموقف */}
+            <Bot>
+              <RichText text="أهلاً بيك في سلتي 👋 أنا هنا أساعدك تحوّل مخلفاتك لفلوس وتحافظ على البيئة." />
+              <p className="mt-2 font-black text-gray-900">
+                <RichText text="حابب نتكلم في أنهي موقف؟ 👇" />
+              </p>
+            </Bot>
+
+            {sc === null ? (
+              <div className="grid gap-3 pt-1">
+                {scenarios.map((s, i) => (
+                  <button
+                    key={i}
+                    onClick={() => pickScenario(i)}
+                    className="w-full flex items-center gap-4 p-4 rounded-2xl bg-white border-2 border-green-200 shadow-md hover:border-green-500 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-right"
+                  >
+                    <span className="w-14 h-14 shrink-0 rounded-2xl bg-gradient-to-br from-green-100 to-green-50 border-2 border-green-200 flex items-center justify-center">
+                      <Emoji3D size="text-3xl">{s.emoji}</Emoji3D>
+                    </span>
+                    <span className="flex-1 min-w-0">
+                      <span className="block font-black text-gray-900 text-base sm:text-lg">{s.tab}</span>
+                      <span className="block text-gray-600 text-xs sm:text-sm">{s.title}</span>
+                    </span>
+                    <span className="text-green-600 font-black text-2xl">‹</span>
+                  </button>
                 ))}
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Active Method Details */}
-        <div className={`rounded-3xl p-6 sm:p-8 md:p-12 border-4 ${methods[activeMethod].bgColor} ${methods[activeMethod].borderColor} shadow-2xl`}>
-          <div className="flex items-center gap-4 mb-8">
-            <div className={`p-4 rounded-2xl ${methods[activeMethod].bgColor} ${methods[activeMethod].borderColor} animate-pulse`}>
-              {methods[activeMethod].icon}
-            </div>
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-black text-gray-900">{methods[activeMethod].title}</h3>
-              <p className="text-base sm:text-lg font-semibold text-gray-600">{methods[activeMethod].subtitle}</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {methods[activeMethod].steps.map((step, index) => (
-              <div key={index} className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-black text-sm flex-shrink-0 bg-gradient-to-br ${methods[activeMethod].color}`}>
-                  {index + 1}
+            ) : (
+              <>
+                <div className="flex justify-end">
+                  <div className="flex items-center gap-2 px-5 py-3 rounded-2xl rounded-bl-sm bg-green-600 text-white font-bold text-sm sm:text-base shadow-md">
+                    <Emoji3D size="text-xl" float={false}>{sc.emoji}</Emoji3D> {sc.tab}
+                  </div>
                 </div>
-                <p className="text-sm sm:text-base text-gray-700 font-semibold">{step}</p>
-              </div>
-            ))}
-          </div>
 
-          {/* Benefits */}
-          <div className="mt-8 pt-6 border-t-2 border-gray-200">
-            <h4 className="text-xl font-black text-gray-900 mb-4">المميزات</h4>
-            <div className="flex flex-wrap gap-3">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border-2 border-indigo-200 hover:border-indigo-400 transition-colors duration-300 cursor-pointer hover:scale-105">
-                <DollarSign className="w-5 h-5 text-indigo-600" />
-                <span className="text-sm font-semibold text-gray-700">كاش لحظي</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border-2 border-purple-200 hover:border-purple-400 transition-colors duration-300 cursor-pointer hover:scale-105">
-                <Sparkles className="w-5 h-5 text-purple-600" />
-                <span className="text-sm font-semibold text-gray-700">عروض وخصومات</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border-2 border-pink-200 hover:border-pink-400 transition-colors duration-300 cursor-pointer hover:scale-105">
-                <Gift className="w-5 h-5 text-pink-600" />
-                <span className="text-sm font-semibold text-gray-700">جوائز</span>
-              </div>
-              {activeMethod === 3 && (
-                <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border-2 border-orange-200 hover:border-orange-400 transition-colors duration-300 cursor-pointer hover:scale-105">
-                  <Gamepad2 className="w-5 h-5 text-orange-600" />
-                  <span className="text-sm font-semibold text-gray-700">تعليم وتطوير المهارات</span>
-                </div>
-              )}
-            </div>
+                {typing && picked === null ? (
+                  <Typing />
+                ) : (
+                  <>
+                    {sc.intro.map((m, i) => (
+                      <Bot key={i}><RichText text={m} /></Bot>
+                    ))}
+                    <Bot>
+                      <span className="font-black text-gray-900">&quot;{sc.question}&quot;</span>
+                    </Bot>
+
+                    {picked === null ? (
+                      <div className="flex flex-wrap gap-2 sm:gap-3 justify-end pt-2">
+                        {sc.options.map((o, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setChoice(i)}
+                            className="px-5 py-3 rounded-2xl rounded-bl-sm bg-gradient-to-r from-green-700 to-green-500 text-white font-bold text-sm sm:text-base shadow-lg hover:scale-105 transition-transform duration-300"
+                          >
+                            {o.label}
+                          </button>
+                        ))}
+                        <button
+                          onClick={backToMenu}
+                          className="px-4 py-3 rounded-2xl bg-white border-2 border-green-200 text-green-700 font-bold text-sm hover:border-green-400 transition-colors"
+                        >
+                          غيّر الموقف
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="flex justify-end">
+                          <div className="px-5 py-3 rounded-2xl rounded-bl-sm bg-green-600 text-white font-bold text-sm sm:text-base shadow-md">{picked.label}</div>
+                        </div>
+
+                        {typing ? (
+                          <Typing />
+                        ) : (
+                          <>
+                            {picked.reply.map((m, i) => (
+                              <Bot key={i}><RichText text={m} /></Bot>
+                            ))}
+                            {picked.list && (
+                              <Bot>
+                                <ol className="space-y-3">
+                                  {picked.list.map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3">
+                                      <span className="w-7 h-7 shrink-0 rounded-full bg-green-600 text-white font-black text-sm flex items-center justify-center">{i + 1}</span>
+                                      <span><RichText text={item} /></span>
+                                    </li>
+                                  ))}
+                                </ol>
+                              </Bot>
+                            )}
+                            {picked.outro && (
+                              <Bot><RichText text={picked.outro} /></Bot>
+                            )}
+                            <div className="flex flex-wrap gap-2 justify-end pt-2">
+                              {sc.options.length > 1 && (
+                                <button
+                                  onClick={() => setChoice(null)}
+                                  className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-white border-2 border-green-200 text-green-700 font-bold text-sm hover:border-green-400 transition-colors"
+                                >
+                                  <Emoji3D size="text-lg" float={false}>🔄</Emoji3D> جرّب إجابة تانية
+                                </button>
+                              )}
+                              <button
+                                onClick={backToMenu}
+                                className="px-4 py-2 rounded-full bg-gradient-to-r from-green-700 to-green-500 text-white font-bold text-sm shadow-md hover:scale-105 transition-transform"
+                              >
+                                اتكلم في موقف تاني
+                              </button>
+                            </div>
+                          </>
+                        )}
+                      </>
+                    )}
+                  </>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

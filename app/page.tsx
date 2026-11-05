@@ -4,6 +4,11 @@ import { Problem } from '@/components/salla/problem'
 import { HowItWorks } from '@/components/salla/how-it-works'
 import { SectionWrapper } from '@/components/salla/section-wrapper'
 import { StructuredData } from '@/components/seo/structured-data'
+import { PartnersSection } from '@/components/salla/partners-section'
+import { LicenseSection } from '@/components/salla/license-section'
+import { NewHowItWorks } from '@/components/salla/new-how-it-works'
+import { SaltiKids } from '@/components/salla/salti-kids'
+import { SupplySection } from '@/components/salla/supply-section'
 import dynamic from 'next/dynamic'
 
 const PromoBanner = dynamic(() => import('@/components/salla/promo-banner').then(mod => ({ default: mod.PromoBanner })), {
@@ -48,6 +53,21 @@ export default function Page() {
           <Hero />
         </SectionWrapper>
         <PromoBanner />
+        <SectionWrapper>
+          <PartnersSection />
+        </SectionWrapper>
+        <SectionWrapper>
+          <LicenseSection />
+        </SectionWrapper>
+        <SectionWrapper>
+          <NewHowItWorks />
+        </SectionWrapper>
+        <SectionWrapper>
+          <SaltiKids />
+        </SectionWrapper>
+        <SectionWrapper>
+          <SupplySection />
+        </SectionWrapper>
         <SectionWrapper>
           <Problem />
         </SectionWrapper>

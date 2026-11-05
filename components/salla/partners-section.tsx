@@ -1,16 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { Truck, Factory, CheckCircle } from 'lucide-react'
 
 export function PartnersSection() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
   const roles = [
     {
       icon: <Truck className="w-8 h-8" />,
@@ -21,7 +13,7 @@ export function PartnersSection() {
         'تعرف النوع والكمية والمكان قبل ما تتحرك، فتبطّل لفّ من غير فايدة',
         'بعد فحص الاستلام ومسح كود QR، قيمة الخامة بتنزل في محفظتك'
       ],
-      color: 'from-green-600 to-green-500',
+      color: 'from-green-700 to-green-500',
       bgColor: 'bg-green-50',
       textColor: 'text-green-700',
       iconBg: 'bg-green-100'
@@ -35,10 +27,10 @@ export function PartnersSection() {
         'الخامة بتتجمع وتتفرز عن طريق شبكة سلة، بدل ما تلف على المخازن والبيوت بنفسك',
         'وفّر وقت اللف وتكلفة البنزين والسولار، وركّز على شغلك'
       ],
-      color: 'from-blue-600 to-blue-500',
-      bgColor: 'bg-blue-50',
-      textColor: 'text-blue-700',
-      iconBg: 'bg-blue-100'
+      color: 'from-emerald-700 to-green-500',
+      bgColor: 'bg-emerald-50',
+      textColor: 'text-emerald-700',
+      iconBg: 'bg-emerald-100'
     }
   ]
 
@@ -50,18 +42,20 @@ export function PartnersSection() {
   ]
 
   const materials = [
-    'بلاستيك PET', 'بلاستيك HDPE', 'ألومنيوم كانز', 'حديد خردة', 
+    'بلاستيك PET', 'بلاستيك HDPE', 'ألومنيوم كانز', 'حديد خردة',
     'نحاس خردة', 'كرتون قديم', 'خردة إلكترونيات', 'مخلفات مصانع'
   ]
 
-  const cities = [
-    'الدقي', 'المهندسين', 'شبرا', 'أكتوبر', 'العاشر من رمضان', 
-    'العبور', 'شبين الكوم', 'أشمون', 'قويسنا', 'الساتات', 
-    'الجيزة', 'القاهرة', 'المنوفية', 'طنطا', 'المحلة'
+  const governorates = [
+    'القاهرة', 'الجيزة', 'الإسكندرية', 'القليوبية', 'الدقهلية', 'الشرقية',
+    'المنوفية', 'الغربية', 'كفر الشيخ', 'البحيرة', 'دمياط', 'بورسعيد',
+    'الإسماعيلية', 'السويس', 'شمال سيناء', 'جنوب سيناء', 'الفيوم', 'بني سويف',
+    'المنيا', 'أسيوط', 'سوهاج', 'قنا', 'الأقصر', 'أسوان',
+    'البحر الأحمر', 'الوادي الجديد', 'مطروح'
   ]
 
   const steps = [
-    { num: 1, title: 'نزّل التطبيق', desc: 'سلة مصر متاح على Google Play' },
+    { num: 1, title: 'نزّل التطبيق', desc: 'سلة مصر متاحة على Google Play' },
     { num: 2, title: 'سجّل كشريك', desc: 'اختار: جامع بمركبتك، أو مشتري تاجر/مصنع' },
     { num: 3, title: 'استقبل الطلبات', desc: 'طلبات حسب منطقتك ونوع الخامة اللي تهمّك' },
     { num: 4, title: 'استلم وخد فلوسك', desc: 'فحص واستلام بكود QR والقيمة في المحفظة' }
@@ -111,7 +105,7 @@ export function PartnersSection() {
                   </li>
                 ))}
               </ul>
-              <button className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl font-bold text-white shadow-lg transition-all hover:scale-105 text-sm sm:text-base ${role.color}`}>
+              <button className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl font-bold text-white shadow-lg transition-all hover:scale-105 text-sm sm:text-base bg-gradient-to-r ${role.color}`}>
                 {index === 0 ? 'سجّل كشريك جامع' : 'سجّل كشريك مشتري'}
               </button>
             </div>
@@ -121,7 +115,7 @@ export function PartnersSection() {
         {/* Materials & Cities */}
         <div className="mb-12 sm:mb-16">
           <h3 className="text-xl sm:text-2xl font-black text-center text-gray-900 mb-4 sm:mb-6">
-            بنجمّع وبنشتري الخامات دي في مناطقك
+            بنجمّع وبنشتري الخامات دي في كل محافظات الجمهورية
           </h3>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {materials.map((mat, i) => (
@@ -129,7 +123,7 @@ export function PartnersSection() {
                 {mat}
               </span>
             ))}
-            {cities.map((city, i) => (
+            {governorates.map((city, i) => (
               <span key={i} className="px-2 sm:px-3 py-1 sm:py-2 bg-white text-gray-700 rounded-full font-semibold text-xs sm:text-sm border-2 border-gray-200">
                 {city}
               </span>
@@ -139,9 +133,9 @@ export function PartnersSection() {
 
         {/* Steps */}
         <div className="mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl font-black text-center text-gray-900 mb-6 sm:mb-8">
+          <h3 className="text-2xl sm:text-3xl font-black text-center text-gray-900 mb-6 sm:mb-8">
             تبدأ إزاي؟ أربع خطوات بس
-          </h2>
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
             {steps.map((step, index) => (
               <div key={index} className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center shadow-lg border-2 border-green-100">
