@@ -7,10 +7,10 @@ import { Icon, IconName, Basket, ToyTeddy, ToyRocket, ToyCar, ToyRobot, Cash } f
    الأرقام والأسماء في الشاشات للتوضيح فقط. */
 
 export const TOYS = [
-  { name: 'دبدوب', Art: ToyTeddy, need: 'بيتعمل من 20 إزازة و 10 كانز' },
-  { name: 'صاروخ', Art: ToyRocket, need: 'بيتعمل من 25 إزازة و 15 كانز' },
-  { name: 'عربية', Art: ToyCar, need: 'بيتعمل من 15 إزازة و 8 بلاستيك' },
-  { name: 'روبوت', Art: ToyRobot, need: 'بيتعمل من 30 إزازة و 20 بلاستيك' },
+  { name: 'دبدوب', Art: ToyTeddy, need: 'بيتعمل من محتويات سلتك يا صغير' },
+  { name: 'صاروخ', Art: ToyRocket, need: 'بيتعمل من محتويات سلتك يا صغير' },
+  { name: 'عربية', Art: ToyCar, need: 'بيتعمل من محتويات سلتك يا صغير' },
+  { name: 'روبوت', Art: ToyRobot, need: 'بيتعمل من محتويات سلتك يا صغير' },
 ]
 
 export type ScreenId = 'stores' | 'basket' | 'home' | 'camera' | 'toys' | 'track'
@@ -97,7 +97,7 @@ export function HomeScreen({ onSend }: { onSend?: () => void }) {
             <div dir="ltr" className="text-[15px] font-extrabold italic">ADAM</div>
           </div>
           <span className="absolute bottom-4 left-[50%] px-4 py-2 rounded-full bg-white text-[#1b5e3b] text-[11px] font-extrabold shadow-md">استبدل</span>
-          <div className="absolute bottom-14 left-4 text-[9px] opacity-80">إزازة، كانز، بلاستيك، كرتون</div>
+          <div className="absolute bottom-14 left-4 text-[9px] opacity-80">من محتويات سلتك يا صغير</div>
         </div>
 
         <h4 className="mx-3 mt-4 mb-2 text-[14px] font-extrabold text-gray-900">إيه اللي عايز تعمله؟</h4>
@@ -191,7 +191,7 @@ export function BasketScreen() {
         <div className="w-full grid grid-cols-2 gap-2.5 mt-3">
           <div className="rounded-2xl bg-white shadow-[0_3px_12px_rgba(0,0,0,.06)] p-3 flex items-center gap-2">
             <span className="w-8 h-8 rounded-xl bg-[#e6f4ec] text-[#2e8b57] flex items-center justify-center"><Icon name="bottle" className="w-[18px] h-[18px]" /></span>
-            <div><div className="text-[14px] font-extrabold text-gray-900 leading-none">14</div><div className="text-[9.5px] text-gray-500 mt-1">إزازة</div></div>
+            <div><div className="text-[14px] font-extrabold text-gray-900 leading-none">14</div><div className="text-[9.5px] text-gray-500 mt-1">قزاز</div></div>
           </div>
           <div className="rounded-2xl bg-white shadow-[0_3px_12px_rgba(0,0,0,.06)] p-3 flex items-center gap-2">
             <span className="w-8 h-8 rounded-xl bg-[#e6f4ec] text-[#2e8b57] flex items-center justify-center"><Icon name="can" className="w-[18px] h-[18px]" /></span>
@@ -241,7 +241,7 @@ export function CameraScreen({ captured, onShoot, onContinue }: { captured: bool
             <Icon name="check" className="w-4 h-4" /> تم التعرّف على السلة
           </div>
           <div className="grid grid-cols-2 gap-1.5 text-center mb-2.5">
-            {[['14', 'إزازة'], ['9', 'كانز'], ['5', 'بلاستيك'], ['3', 'كرتون']].map(([v, l]) => (
+            {[['14', 'قزاز'], ['9', 'كانز'], ['5', 'بلاستيك'], ['3', 'كرتون']].map(([v, l]) => (
               <div key={l} className="rounded-xl bg-[#e6f4ec] py-1.5">
                 <div className="text-[13px] font-extrabold text-[#1b5e3b] leading-none">{v}</div>
                 <div className="text-[9.5px] text-gray-500 mt-0.5">{l}</div>
@@ -309,7 +309,7 @@ export function TrackScreen({ toy }: { toy: number }) {
           <T.Art className="w-[44px] h-[44px]" />
           <div className="flex-1">
             <div className="text-[12px] font-extrabold text-gray-900">استبدال سلتي بـ {T.name}</div>
-            <div className="text-[10px] text-gray-500 mt-0.5">إزازة، كانز، بلاستيك، كرتون</div>
+            <div className="text-[10px] text-gray-500 mt-0.5">من محتويات سلتك يا صغير</div>
           </div>
           <span className="px-2 py-1 rounded-full bg-[#e6f4ec] text-[#2e8b57] text-[9.5px] font-extrabold">جاري</span>
         </div>
@@ -335,7 +335,7 @@ export function TrackScreen({ toy }: { toy: number }) {
             <span className="text-[#2e8b57] font-extrabold text-lg">+</span>
             <div className="flex flex-col items-center"><Cash className="w-[52px] h-[32px]" /><span className="text-[10px] font-extrabold text-gray-800">45 جنيه كاش</span></div>
           </div>
-          <div className="text-[9.5px] opacity-90 mt-2 leading-relaxed">الفلوس هي تمن الإزازة والكانز والبلاستيك والكرتون اللي في سلتك، واللعبة هدية الاستبدال</div>
+          <div className="text-[9.5px] opacity-90 mt-2 leading-relaxed">الفلوس هي تمن محتويات سلتك يا صغير، واللعبة هدية الاستبدال</div>
         </div>
       </div>
       <BottomNav active="orders" />
