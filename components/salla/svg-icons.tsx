@@ -389,7 +389,7 @@ function CanShape({ x, y }: { x: number; y: number }) {
   )
 }
 
-/** سلتي: level من 0 لـ 1 بيحدد مستوى الامتلاء (بتتحرك بنعومة) */
+/** سلة: level من 0 لـ 1 بيحدد مستوى الامتلاء (بتتحرك بنعومة) */
 export function Basket({ className, level = 1, id = 'bk' }: P & { level?: number; id?: string }) {
   const lv = Math.max(0, Math.min(1, level))
   return (

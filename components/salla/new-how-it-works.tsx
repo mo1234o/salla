@@ -96,10 +96,10 @@ export function NewHowItWorks() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold mb-4">
-            <Icon name="chat" className="w-5 h-5" /> اتكلم مع سلتي
+            <Icon name="chat" className="w-5 h-5" /> اتكلم مع سلة
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-            3 مواقف.. وسلتي <span className="text-green-600">هيقولك تعمل إيه</span>
+            3 مواقف.. وسلة <span className="text-green-600">هيقولك تعمل إيه</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             ابدأ الشات، واختار الموقف اللي يشبهك، وهتعرف أسهل طريقة تحوّل بيها المخلفات لفلوس
@@ -124,7 +124,7 @@ export function NewHowItWorks() {
           <div className="p-4 sm:p-6 space-y-4 bg-gradient-to-b from-green-50/60 to-white min-h-[24rem]">
             {/* بداية المحادثة: اختيار الموقف */}
             <Bot>
-              أهلاً بيك في سلتي. أنا هنا أساعدك تحوّل مخلفاتك لفلوس وتحافظ على البيئة.
+              أهلاً بيك في سلة. أنا هنا أساعدك تحوّل مخلفاتك لفلوس وتحافظ على البيئة.
               <p className="mt-2 font-black text-gray-900">
                 حابب نتكلم في أنهي موقف؟
               </p>
