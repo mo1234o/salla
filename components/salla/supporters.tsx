@@ -25,7 +25,7 @@ export function Supporters() {
           100% { transform: translateX(-50%); }
         }
         .animate-scroll-left {
-          animation: scrollLeft 30s linear infinite;
+          animation: scrollLeft 40s linear infinite;
         }
         .animate-scroll-left:hover {
           animation-play-state: paused;
@@ -51,14 +51,61 @@ export function Supporters() {
             {/* Animated Supporters Display - Horizontal Scroll on Mobile */}
             <div className="mt-12 sm:mt-20 w-full">
               {/* Desktop: Grid Layout */}
-              <div className="hidden sm:flex flex-wrap justify-center gap-6 sm:gap-8">
+              <div className="hidden md:flex flex-wrap justify-center gap-8 lg:gap-10">
                 {supporters.map((s, index) => {
                   const isLarge = s.size === 'large'
                   return (
                     <div
                       key={s.sub}
                       className={`relative transition-all duration-300 hover:-translate-y-2 hover:scale-105 cursor-pointer group ${
-                        isLarge ? 'w-[240px] sm:w-[260px]' : 'w-[200px] sm:w-[220px]'
+                        isLarge ? 'w-[280px] lg:w-[300px]' : 'w-[220px] lg:w-[240px]'
+                      }`}
+                    >
+                      {/* Push Pin */}
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                        <div className="relative">
+                          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-red-500 to-red-700 shadow-lg" />
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-red-300" />
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-red-400 to-red-600 opacity-50" />
+                        </div>
+                      </div>
+
+                      {/* Card */}
+                      <div className="relative rounded-[1.5rem] border-[3px] border-background bg-card p-5 shadow-xl">
+                        <div className="flex flex-col items-center gap-3 text-center">
+                          <span className={`flex ${isLarge ? 'h-24' : 'h-20'} w-full items-center justify-center rounded-xl bg-white p-3 shadow-inner`}>
+                            <img
+                              src={s.logo}
+                              alt={`${s.name} - ${s.sub} داعم تطبيق سلة - تطبيق إعادة تدوير مصري`}
+                              className="max-h-full max-w-full object-contain"
+                            />
+                          </span>
+                          <div>
+                            <p className={`font-heading font-bold text-secondary leading-tight ${isLarge ? 'text-[16px] lg:text-[18px]' : 'text-[14px] lg:text-[15px]'}`}>
+                              {s.name}
+                            </p>
+                            <p className="mt-1 font-mono text-[11px] lg:text-xs font-semibold tracking-wider text-muted-foreground/70 uppercase">
+                              {s.sub}
+                            </p>
+                          </div>
+                        </div>
+                        {/* Glossy overlay */}
+                        <div className="absolute inset-0 rounded-[1.3rem] bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Tablet: Smaller Grid */}
+              <div className="hidden sm:flex md:hidden flex-wrap justify-center gap-6">
+                {supporters.map((s, index) => {
+                  const isLarge = s.size === 'large'
+                  return (
+                    <div
+                      key={s.sub}
+                      className={`relative transition-all duration-300 hover:-translate-y-2 hover:scale-105 cursor-pointer group ${
+                        isLarge ? 'w-[260px]' : 'w-[200px]'
                       }`}
                     >
                       {/* Push Pin */}
@@ -81,10 +128,10 @@ export function Supporters() {
                             />
                           </span>
                           <div>
-                            <p className={`font-heading font-bold text-secondary leading-tight ${isLarge ? 'text-[15px] sm:text-[16px]' : 'text-[13px] sm:text-[14px]'}`}>
+                            <p className={`font-heading font-bold text-secondary leading-tight ${isLarge ? 'text-[15px]' : 'text-[13px]'}`}>
                               {s.name}
                             </p>
-                            <p className="mt-1 font-mono text-[10px] sm:text-xs font-semibold tracking-wider text-muted-foreground/70 uppercase">
+                            <p className="mt-1 font-mono text-[10px] font-semibold tracking-wider text-muted-foreground/70 uppercase">
                               {s.sub}
                             </p>
                           </div>
@@ -99,14 +146,14 @@ export function Supporters() {
 
               {/* Mobile: Animated Horizontal Scroll */}
               <div className="sm:hidden relative overflow-hidden">
-                <div className="flex gap-4 animate-scroll-left">
+                <div className="flex gap-5 animate-scroll-left">
                   {[...supporters, ...supporters].map((s, index) => {
                     const isLarge = s.size === 'large'
                     return (
                       <div
                         key={`${s.sub}-${index}`}
                         className={`relative flex-shrink-0 transition-all duration-300 hover:scale-105 cursor-pointer group ${
-                          isLarge ? 'w-[220px]' : 'w-[180px]'
+                          isLarge ? 'w-[240px]' : 'w-[190px]'
                         }`}
                       >
                         {/* Push Pin */}

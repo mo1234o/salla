@@ -98,17 +98,17 @@ export function AchievementsSection() {
           </div>
 
           {/* Podium Layout */}
-          <div className="flex flex-col sm:flex-row items-end justify-center gap-4 sm:gap-6 max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-end justify-center gap-4 sm:gap-8 max-w-5xl mx-auto">
             {/* Position 2 (Left) */}
-            <div className="flex flex-col items-center flex-1 max-w-xs order-2 sm:order-1">
+            <div className="flex flex-col items-center flex-1 max-w-[280px] sm:max-w-[320px] order-2 sm:order-1">
               <div className="w-full bg-white rounded-[26px] p-3 sm:p-4 border border-[#d9ecd0] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
                    onClick={() => setSelectedImage(achievements[1].src)}>
                 <div className="overflow-hidden rounded-[16px]">
                   <Image
                     src={achievements[1].src}
                     alt={achievements[1].title}
-                    width={400}
-                    height={400}
+                    width={500}
+                    height={500}
                     className="w-full aspect-square object-cover"
                   />
                 </div>
@@ -122,15 +122,15 @@ export function AchievementsSection() {
             </div>
 
             {/* Position 1 (Center - Largest) */}
-            <div className="flex flex-col items-center flex-1 max-w-sm order-1 sm:order-2 z-10">
+            <div className="flex flex-col items-center flex-1 max-w-[320px] sm:max-w-[380px] order-1 sm:order-2 z-10">
               <div className="w-full bg-white rounded-[26px] p-3 sm:p-4 border-2 border-green-500 shadow-2xl hover:shadow-[0_28px_60px_-24px_rgba(63,154,51,0.6)] transition-all duration-300 hover:-translate-y-2 cursor-pointer"
                    onClick={() => setSelectedImage(achievements[0].src)}>
                 <div className="overflow-hidden rounded-[16px]">
                   <Image
                     src={achievements[0].src}
                     alt={achievements[0].title}
-                    width={500}
-                    height={500}
+                    width={600}
+                    height={600}
                     className="w-full aspect-square object-cover"
                   />
                 </div>
@@ -144,15 +144,15 @@ export function AchievementsSection() {
             </div>
 
             {/* Position 3 (Right) */}
-            <div className="flex flex-col items-center flex-1 max-w-xs order-3">
+            <div className="flex flex-col items-center flex-1 max-w-[280px] sm:max-w-[320px] order-3">
               <div className="w-full bg-white rounded-[26px] p-3 sm:p-4 border border-[#d9ecd0] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
                    onClick={() => setSelectedImage(achievements[2].src)}>
                 <div className="overflow-hidden rounded-[16px]">
                   <Image
                     src={achievements[2].src}
                     alt={achievements[2].title}
-                    width={400}
-                    height={400}
+                    width={500}
+                    height={500}
                     className="w-full aspect-square object-cover"
                   />
                 </div>
