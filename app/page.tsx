@@ -7,7 +7,6 @@ import { StructuredData } from '@/components/seo/structured-data'
 import { PartnersSection } from '@/components/salla/partners-section'
 import { LicenseSection } from '@/components/salla/license-section'
 import { NewHowItWorks } from '@/components/salla/new-how-it-works'
-import { SaltiKids } from '@/components/salla/salti-kids'
 import { SupplySection } from '@/components/salla/supply-section'
 import { AchievementsSection } from '@/components/salla/achievements-section'
 import dynamic from 'next/dynamic'
@@ -62,9 +61,6 @@ export default function Page() {
         </SectionWrapper>
         <SectionWrapper>
           <NewHowItWorks />
-        </SectionWrapper>
-        <SectionWrapper>
-          <SaltiKids />
         </SectionWrapper>
         <SectionWrapper>
           <SupplySection />

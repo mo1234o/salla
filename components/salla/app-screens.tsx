@@ -7,10 +7,10 @@ import { Icon, IconName, Basket, ToyTeddy, ToyRocket, ToyCar, ToyRobot, Cash } f
    الأرقام والأسماء في الشاشات للتوضيح فقط. */
 
 export const TOYS = [
-  { name: 'دبدوب', Art: ToyTeddy, need: 'بيتعمل من محتويات سلتك يا صغير' },
-  { name: 'صاروخ', Art: ToyRocket, need: 'بيتعمل من محتويات سلتك يا صغير' },
-  { name: 'عربية', Art: ToyCar, need: 'بيتعمل من محتويات سلتك يا صغير' },
-  { name: 'روبوت', Art: ToyRobot, need: 'بيتعمل من محتويات سلتك يا صغير' },
+  { name: 'دبدوب', Art: ToyTeddy, need: 'بيتعمل من المواد التي تجمعها' },
+  { name: 'صاروخ', Art: ToyRocket, need: 'بيتعمل من المواد التي تجمعها' },
+  { name: 'عربية', Art: ToyCar, need: 'بيتعمل من المواد التي تجمعها' },
+  { name: 'روبوت', Art: ToyRobot, need: 'بيتعمل من المواد التي تجمعها' },
 ]
 
 export type ScreenId = 'stores' | 'basket' | 'home' | 'camera' | 'toys' | 'track'
@@ -97,7 +97,7 @@ export function HomeScreen({ onSend }: { onSend?: () => void }) {
             <div dir="ltr" className="text-[15px] font-extrabold italic">ADAM</div>
           </div>
           <span className="absolute bottom-4 left-[50%] px-4 py-2 rounded-full bg-white text-[#1b5e3b] text-[11px] font-extrabold shadow-md">استبدل</span>
-          <div className="absolute bottom-14 left-4 text-[9px] opacity-80">من محتويات سلتك يا صغير</div>
+          <div className="absolute bottom-14 left-4 text-[9px] opacity-80">من المواد التي تجمعها</div>
         </div>
 
         <h4 className="mx-3 mt-4 mb-2 text-[14px] font-extrabold text-gray-900">إيه اللي عايز تعمله؟</h4>
@@ -128,7 +128,7 @@ export function HomeScreen({ onSend }: { onSend?: () => void }) {
   )
 }
 
-/* ---------- المتاجر (اشتري سلتي) ---------- */
+/* ---------- المتاجر (اشتري سلة) ---------- */
 export function StoresScreen() {
   const stores = [
     { name: 'سوبر ماركت قريب منك', dist: 'على بعد 300 متر', icon: 'store' as IconName },
@@ -137,13 +137,13 @@ export function StoresScreen() {
   ]
   return (
     <Screen>
-      <Header title="متاجر سلتي" />
+      <Header title="متاجر سلة" />
       <div className="flex-1 overflow-hidden pb-[58px] px-3 pt-3">
         <div className="rounded-2xl bg-gradient-to-br from-[#1b5e3b] to-[#3d9a6b] text-white p-3 flex items-center gap-3 shadow-lg">
           <Basket id="st" className="w-[72px] h-[76px] shrink-0 bg-white/90 rounded-xl p-1.5" level={0.2} />
           <div>
-            <div className="font-extrabold text-[13px]">سلتي للأطفال</div>
-            <div className="text-[10px] opacity-90 leading-relaxed mt-0.5">سلة الطفل لتجميع الإزاز والبلاستيك، بسعر رخيص ومدعوم</div>
+            <div className="font-extrabold text-[13px]">سلة للأطفال</div>
+            <div className="text-[10px] opacity-90 leading-relaxed mt-0.5">سلة الطفل لتجميع المواد القابلة لإعادة التدوير، بسعر رخيص ومدعوم</div>
           </div>
         </div>
         <h4 className="mt-4 mb-2 text-[13px] font-extrabold text-gray-900">اشتريها من أقرب متجر ليك</h4>
@@ -165,7 +165,7 @@ export function StoresScreen() {
   )
 }
 
-/* ---------- سلتي بتتملي ---------- */
+/* ---------- سلة بتتملي ---------- */
 export function BasketScreen() {
   const [lv, setLv] = useState(0.1)
   useEffect(() => {
@@ -175,13 +175,13 @@ export function BasketScreen() {
   const pct = Math.round(lv * 100)
   return (
     <Screen>
-      <Header title="سلتي" />
+      <Header title="سلة" />
       <div className="flex-1 overflow-hidden pb-[58px] px-3 pt-3 flex flex-col items-center">
         <div className="w-full rounded-2xl bg-white shadow-[0_4px_14px_rgba(0,0,0,.07)] p-3 flex flex-col items-center">
           <Basket id="bs" className="w-[150px] h-[158px]" level={lv} />
           <div className="w-full mt-2">
             <div className="flex justify-between text-[11px] font-extrabold text-[#1b5e3b] mb-1">
-              <span>سلتي بتتملي</span><span>{pct}%</span>
+              <span>سلة بتتملي</span><span>{pct}%</span>
             </div>
             <div className="h-2.5 rounded-full bg-[#e6f4ec] overflow-hidden">
               <div className="h-full rounded-full bg-gradient-to-r from-[#1b5e3b] to-[#4cb37b] transition-all duration-[1800ms] ease-out" style={{ width: `${pct}%` }} />
@@ -308,8 +308,8 @@ export function TrackScreen({ toy }: { toy: number }) {
         <div className="rounded-2xl bg-white shadow-[0_3px_12px_rgba(0,0,0,.07)] p-3 flex items-center gap-3">
           <T.Art className="w-[44px] h-[44px]" />
           <div className="flex-1">
-            <div className="text-[12px] font-extrabold text-gray-900">استبدال سلتي بـ {T.name}</div>
-            <div className="text-[10px] text-gray-500 mt-0.5">من محتويات سلتك يا صغير</div>
+            <div className="text-[12px] font-extrabold text-gray-900">استبدال سلة بـ {T.name}</div>
+            <div className="text-[10px] text-gray-500 mt-0.5">من المواد التي تجمعها</div>
           </div>
           <span className="px-2 py-1 rounded-full bg-[#e6f4ec] text-[#2e8b57] text-[9.5px] font-extrabold">جاري</span>
         </div>

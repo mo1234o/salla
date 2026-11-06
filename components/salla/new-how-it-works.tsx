@@ -11,7 +11,7 @@ const scenarios: Scenario[] = [
     tab: 'في البيت',
     icon: 'home',
     title: 'فرز من المنبع والتخلص السريع',
-    intro: ['يا هلا بيك يا سيد الناس ويا ست الكل في تطبيق سلتي (Salla) من قلب كرياتيفا المنصورة بمحافظة الدقهلية. قولنا كده..'],
+    intro: ['يا هلا بيك يا سيد الناس ويا ست الكل في تطبيق سلة (Salla) من قلب كرياتيفا المنصورة بمحافظة الدقهلية. قولنا كده..'],
     question: 'عندك مخلفات صلبة أو زبالة في البيت وعاوز تخلص منها وتكسب؟',
     options: [
       {
@@ -37,26 +37,6 @@ const scenarios: Scenario[] = [
       },
     ],
   },
-  {
-    tab: 'سلتي للأطفال',
-    icon: 'gamepad',
-    title: 'بيزنس موديل الأطفال الجديد (Salla Kids)',
-    intro: ['تعالى بقا للبيزنس الجديد العبقري بتاعنا.. سلتي للأطفال'],
-    question: 'عاوز تعلّم ابنك إزاي يعمل فلوس ويعتمد على نفسه من وهو صغير؟',
-    options: [
-      {
-        label: 'آه، ياريت علّمنا إزاي!',
-        reply: ['طب تعالى أقولك إزاي! بص يا سيد الناس ويا ست الكل:'],
-        list: [
-          'هتشتريله صندوق (سلتي للأطفال) من المتاجر اللي شغالة معانا في محافظتك بسعر رخيص جدًا ومدعوم',
-          'هيبدأ يملّا الصندوق بالمخلفات البلاستيكية والقزاز وهو فرحان بحصالته البيئية',
-          'أول ما السلة تتملي، افتحي التطبيق يا ست الكل، صوّري السلة، وابعتيلنا الطلب',
-          'الطفل بيختار اللعبة اللي عايزها من التطبيق، والمندوب لما يوصلكم بيسلّمه اللعبة وبيديه فلوس الحاجة اللي في السلة نفسها!',
-        ],
-        outro: 'بكده نكون زرعنا في عيالنا الوعي بالمحافظة على البيئة، وشجّعناه بلعبة وفلوس وجوايز، وعرّفناه يعني إيه نظافة، ومش هيتعبك يا ست الكل ولا هيتعبك يا سيد الناس!',
-      },
-    ],
-  },
 ]
 
 function Bot({ children }: { children: React.ReactNode }) {
@@ -75,7 +55,7 @@ function Bot({ children }: { children: React.ReactNode }) {
 function Typing() {
   return (
     <Bot>
-      <div className="flex gap-1 py-1" aria-label="سلتي بيكتب">
+      <div className="flex gap-1 py-1" aria-label="سلة بيكتب">
         {[0, 1, 2].map((i) => (
           <span key={i} className="w-2 h-2 rounded-full bg-green-500 animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />
         ))}
@@ -88,12 +68,11 @@ export function NewHowItWorks() {
   const [active, setActive] = useState<number | null>(null)
   const [choice, setChoice] = useState<number | null>(null)
   const [typing, setTyping] = useState(false)
-  const [imageError, setImageError] = useState(false)
 
   const sc = active !== null ? scenarios[active] : null
   const picked = sc && choice !== null ? sc.options[choice] : null
 
-  // "سلتي بيكتب..." بعد اختيار الموقف وبعد اختيار الإجابة
+  // "سلة بيكتب..." بعد اختيار الموقف وبعد اختيار الإجابة
   useEffect(() => {
     if (active === null) return
     setTyping(true)
@@ -130,15 +109,11 @@ export function NewHowItWorks() {
         {/* Chat card */}
         <div className="bg-white rounded-3xl shadow-2xl border-2 border-green-100 overflow-hidden">
           <div className="bg-gradient-to-r from-green-800 to-green-600 px-5 py-4 flex items-center gap-3">
-            {active === 2 && !imageError ? (
-              <img src="/salti-logo.png" alt="سلتي للأطفال" className="w-12 h-12 rounded-full bg-white object-contain border-2 border-white" onError={() => setImageError(true)} />
-            ) : (
-              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                <Icon name="robot" className="w-7 h-7 text-white" />
-              </div>
-            )}
+            <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+              <Icon name="robot" className="w-7 h-7 text-white" />
+            </div>
             <div className="min-w-0">
-              <h3 className="text-white font-black text-base sm:text-lg">سلتي</h3>
+              <h3 className="text-white font-black text-base sm:text-lg">سلة</h3>
               <p className="text-green-100 text-xs sm:text-sm truncate">{sc ? sc.title : 'مساعدك لتحويل المخلفات لفلوس'}</p>
             </div>
             <span className="mr-auto flex items-center gap-1 text-xs text-green-100">
