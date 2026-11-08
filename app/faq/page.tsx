@@ -3,7 +3,6 @@ import { FooterCta } from '@/components/salla/footer-cta'
 import { StructuredData } from '@/components/seo/structured-data'
 import { ChevronDown, HelpCircle, Truck, Factory, MessageCircle, CreditCard, Smartphone, Car, Building2 } from 'lucide-react'
 import { useState } from 'react'
-import Head from 'next/head'
 
 const faqCategories = [
   {
@@ -106,13 +105,7 @@ export default function FAQPage() {
   const [openQuestion, setOpenQuestion] = useState<number | null>(null)
 
   return (
-    <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
-      </Head>
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white" style={{ fontFamily: 'Tajawal, system-ui, sans-serif' }}>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white font-tajawal">
       <StructuredData />
       <SiteHeader />
       <main className="py-16 px-4 sm:px-6">
