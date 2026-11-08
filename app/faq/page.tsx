@@ -3,8 +3,16 @@
 import { SiteHeader } from '@/components/salla/site-header'
 import { FooterCta } from '@/components/salla/footer-cta'
 import { StructuredData } from '@/components/seo/structured-data'
-import { ChevronDown, HelpCircle, Truck, Factory, MessageCircle, CreditCard, Smartphone, Car, Building2 } from 'lucide-react'
+import { ChevronDown, HelpCircle, Truck, Factory, MessageCircle, CreditCard, Smartphone, Car, Building2, ArrowLeft } from 'lucide-react'
 import { useState } from 'react'
+
+const navLinks = [
+  { href: '/#problem', label: 'المشكلة' },
+  { href: '/#how', label: 'إزاي بتشتغل' },
+  { href: '/#story', label: 'الحكاية' },
+  { href: '/#team', label: 'المؤسسين' },
+  { href: '/#supporters', label: 'الداعمين' },
+]
 
 const faqCategories = [
   {
@@ -112,6 +120,17 @@ export default function FAQPage() {
       <SiteHeader />
       <main className="py-16 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
+          {/* Navigation Back to Home */}
+          <div className="mb-8">
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 text-gray-600 hover:text-green-600 transition-colors font-medium"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              العودة للصفحة الرئيسية
+            </a>
+          </div>
+
           {/* Header */}
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 rounded-full bg-green-100 text-green-700 px-5 py-2 text-sm font-bold mb-6">
@@ -124,6 +143,22 @@ export default function FAQPage() {
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
               اكتشف الإجابات على الأسئلة الشائعة حول تطبيق سلة وخدمات إعادة التدوير
             </p>
+          </div>
+
+          {/* Quick Navigation to Home Sections */}
+          <div className="mb-12 bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">توجه بسرعة للقسم المحدد</h3>
+            <div className="flex flex-wrap gap-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-2 rounded-xl bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 font-medium transition-all text-sm"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* FAQ Categories */}
