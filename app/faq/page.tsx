@@ -214,6 +214,5 @@ export default function FAQPage() {
       </main>
       <FooterCta />
     </div>
-    </>
   )
 }
