@@ -6,14 +6,6 @@ import { StructuredData } from '@/components/seo/structured-data'
 import { ChevronDown, HelpCircle, Truck, Factory, MessageCircle, CreditCard, Smartphone, Car, Building2, ArrowLeft } from 'lucide-react'
 import { useState } from 'react'
 
-const navLinks = [
-  { href: '/#problem', label: 'المشكلة' },
-  { href: '/#how', label: 'إزاي بتشتغل' },
-  { href: '/#story', label: 'الحكاية' },
-  { href: '/#team', label: 'المؤسسين' },
-  { href: '/#supporters', label: 'الداعمين' },
-]
-
 const faqCategories = [
   {
     title: 'الشريك الجامع',
@@ -143,22 +135,6 @@ export default function FAQPage() {
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
               اكتشف الإجابات على الأسئلة الشائعة حول تطبيق سلة وخدمات إعادة التدوير
             </p>
-          </div>
-
-          {/* Quick Navigation to Home Sections */}
-          <div className="mb-12 bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">توجه بسرعة للقسم المحدد</h3>
-            <div className="flex flex-wrap gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-4 py-2 rounded-xl bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 font-medium transition-all text-sm"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* FAQ Categories */}

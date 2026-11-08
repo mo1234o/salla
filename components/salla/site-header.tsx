@@ -6,11 +6,11 @@ import { Logo } from './logo'
 import { Button } from '@/components/ui/button'
 
 const links = [
-  { href: '#problem', label: 'المشكلة' },
-  { href: '#how', label: 'إزاي بتشتغل' },
-  { href: '#story', label: 'الحكاية' },
-  { href: '#team', label: 'المؤسسين' },
-  { href: '#supporters', label: 'الداعمين' },
+  { href: '/#problem', label: 'المشكلة' },
+  { href: '/#how', label: 'إزاي بتشتغل' },
+  { href: '/#story', label: 'الحكاية' },
+  { href: '/#team', label: 'المؤسسين' },
+  { href: '/#supporters', label: 'الداعمين' },
   { href: '/faq', label: 'الأسئلة' },
 ]
 
@@ -38,7 +38,7 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Button asChild className="rounded-full font-bold">
-            <a href="#contact">اتواصل معانا</a>
+            <a href="/#contact">اتواصل معانا</a>
           </Button>
         </div>
 
@@ -65,7 +65,7 @@ export function SiteHeader() {
               </a>
             ))}
             <Button asChild className="mt-2 rounded-full font-bold">
-              <a href="#contact" onClick={() => setOpen(false)}>
+              <a href="/#contact" onClick={() => setOpen(false)}>
                 اتواصل معانا
               </a>
             </Button>
