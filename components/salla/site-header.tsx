@@ -12,6 +12,7 @@ const links = [
   { href: getSecureSectionUrl('story'), label: 'الحكاية' },
   { href: getSecureSectionUrl('team'), label: 'المؤسسين' },
   { href: getSecureSectionUrl('supporters'), label: 'الداعمين' },
+  { href: '/faq', label: 'الأسئلة' },
 ]
 
 export function SiteHeader() {
