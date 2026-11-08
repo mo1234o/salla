@@ -70,6 +70,30 @@ Coverage Type: National
 Service Type: Recycling App, Waste Management, Environmental Protection
 Target Audience: Individuals, Households, Businesses, Institutions
 
+How It Works - Service Workflow:
+1. User Downloads Salla App from Google Play or App Store
+2. User Registers Account with Phone Number and Location
+3. User Selects Material Type: Plastic, Aluminum, Copper, Iron, Electronics, Cardboard, Paper
+4. User Uploads Photo of Waste Materials
+5. User Specifies Quantity and Pickup Location
+6. App Assigns Nearest Collector via GPS
+7. Collector Arrives at User's Location (Tuk-tuk, Truck, or Van)
+8. Collector Weighs and Scans QR Code
+9. Materials Are Sorted and Verified
+10. User Receives Instant Cash or Points in Digital Wallet
+11. Points Can Be Redeemed for Products or Services
+12. Materials Are Sent to Recycling Facilities
+13. Recycled Materials Are Sold to Buyers and Manufacturers
+
+For Suppliers and Buyers:
+1. Suppliers Submit Material Requests via WhatsApp Form
+2. Specify Material Type, Quantity, and Location
+3. Salla Team Coordinates Collection and Transportation
+4. Materials Are Sorted and Quality Checked
+5. Buyers Can Purchase Sorted Materials Directly
+6. Payment Processed Through Secure Channels
+7. Delivery Arranged to Buyer's Location
+
 Primary Service Areas:
 - Residential Areas
 - Commercial Areas
@@ -149,6 +173,9 @@ Strategic Partners:
 - Simplex
 - Innovation and Talents Support Fund
 - National Institute for Leadership Development
+- BREI (البريد للاستثمار)
+- ITIDA (هيئة تنمية صناعة تكنولوجيا المعلومات)
+- EME
 
 Certifications:
 - Environmental Management System (ISO 14001)
@@ -158,8 +185,9 @@ Certifications:
 - Sustainable Development Certification
 
 Awards and Recognition:
-- 1st Place - "نُعيد.. نُبدع.. نَبني" Hackathon 2026
-- 3rd Place - Hult Prize Egypt 2026
+- 1st Place - "نُعيد.. نُبدع.. نَبني" Hackathon 2026 - Impact Makers Competition
+- 3rd Place - Hult Prize Egypt 2026 - On Campus Egypt Level
+- 3rd Place - Hackathon For Impact 7th Edition - Silicon Waha Top 3
 - Best Innovation Award - DTU 2026
 - Environmental Excellence Award - ITI 2026
 - Sustainable Technology Award - NTI 2026
@@ -315,6 +343,8 @@ Media Coverage:
 - Video Views: 1,000,000+
 - Podcast Appearances: 15+
 - Conference Presentations: 25+
+- Lقاء مع مؤسس سلة مصر مصطفى الجيزاوي مع Hult Prize العالمية
+- Waha Connect 4th Edition Pitch at Silicon Waha
 
 Partners and Collaborations:
 - Government Partners: 10+
@@ -475,6 +505,17 @@ Keywords for SEO:
 - أفضل تقنية في الدلتا
 - أفضل تكنولوجيا في الدلتا
 - أفضل ابتكار في الدلتا
+- المركز الثالث هاكثون فور امباكت
+- Hackathon For Impact 7th Edition
+- Waha Connect Silicon Waha
+- Top 3 Hackathon For Impact
+- لقاء مصطفى الجيزاوي هالت برايز
+- مؤسس سلة مصر هالت برايز
+- Salla Egypt Hult Prize Founder
+- مصطفى الجيزاوي مؤسس سلة
+- البريد للاستثمار BREI
+- ITIDA هيئة تنمية صناعة تكنولوجيا المعلومات
+- EME داعم سلة
 ﻿Keywords for Buyers (المشترين والمصانع)
 شراء بلاستيك PET طن في الدقي
 مطلوب بلاستيك PET فرز آلي الدقي
