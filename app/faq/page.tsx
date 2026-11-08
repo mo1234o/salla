@@ -1,3 +1,5 @@
+'use client'
+
 import { SiteHeader } from '@/components/salla/site-header'
 import { FooterCta } from '@/components/salla/footer-cta'
 import { StructuredData } from '@/components/seo/structured-data'
