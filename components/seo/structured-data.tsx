@@ -14,14 +14,8 @@ export function StructuredData() {
     foundingDate: '2026',
     founders: [
       {
-        '@type': 'Person',
-        name: 'مصطفى الجيزاوي',
-        jobTitle: 'مؤسس',
-      },
-      {
-        '@type': 'Person',
-        name: 'سامي عوض',
-        jobTitle: 'شريك مؤسس',
+        '@type': 'Organization',
+        name: 'Impact Makers Salla Team',
       },
     ],
     contactPoint: {

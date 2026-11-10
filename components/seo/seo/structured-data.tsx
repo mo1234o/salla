@@ -14,28 +14,8 @@ export function StructuredData() {
     foundingDate: '2026',
     founders: [
       {
-        '@type': 'Person',
-        name: 'مصطفى رجب سليمان',
-        jobTitle: 'مؤسس ورائد أعمال',
-        description: 'مؤسس تطبيق سلة مصر، رائد أعمال من محافظة المنوفية، قاد فكرة تحويل المخلفات المنزلية إلى عائد مالي من شوارع المنوفية إلى مشروع وطني',
-      },
-      {
-        '@type': 'Person',
-        name: 'محمد حسن الطويل',
-        jobTitle: 'شريك مؤسس',
-        description: 'شريك مؤسس تطبيق سلة مصر، شارك في تطوير الفكرة وتأسيس المشروع من محافظة المنوفية',
-      },
-      {
-        '@type': 'Person',
-        name: 'مصطفى الجيزاوي',
-        jobTitle: 'مهندس مؤسس - Impact Makers Salla Team',
-        description: 'مهندس مؤسس تطبيق سلة، فائز بالمركز الأول في مسابقة نُعيد.. نُبدع.. نَبني لإدارة المخلفات 2026',
-      },
-      {
-        '@type': 'Person',
-        name: 'سامي عوض',
-        jobTitle: 'مهندس ومؤسس مشارك - Impact Makers Salla Team',
-        description: 'مهندس ومؤسس مشارك تطبيق سلة، فائز بالمركز الأول في مسابقة نُعيد.. نُبدع.. نَبني لإدارة المخلفات 2026',
+        '@type': 'Organization',
+        name: 'Impact Makers Salla Team',
       },
     ],
     contactPoint: {

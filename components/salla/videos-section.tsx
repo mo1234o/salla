@@ -14,7 +14,7 @@ const videos = [
   },
   {
     src: '/salla/videos/hult-prize-interview.mp4',
-    title: 'لقاء مع مؤسس سلة مصر مصطفى الجيزاوي مع Hult Prize',
+    title: 'لقاء مع مؤسس سلة مصر مع Hult Prize',
     description: 'حوار خاص مع مؤسس سلة مصر في مسابقة Hult Prize العالمية',
     icon: Award,
     thumbnail: '/salla/videos/thumbnails/hult-prize.png'
